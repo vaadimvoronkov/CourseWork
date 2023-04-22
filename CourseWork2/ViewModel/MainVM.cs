@@ -1,6 +1,6 @@
 ﻿namespace CourseWork2.ViewModel
 {
-    public class LessonVM 
+    public class MainVM 
     {
        
     }

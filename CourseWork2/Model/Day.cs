@@ -1,6 +1,6 @@
 ﻿namespace CourseWork2.Model
 {
-    class Day
+    public class Day
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CourseWork2.ViewModel;
+using System.Windows;
 
 
 namespace CourseWork2.View
@@ -11,6 +12,7 @@ namespace CourseWork2.View
         public MainWindow()
         {
             InitializeComponent();
+            //DataContext dataContext = new MainVM();
         }
     }
 }
