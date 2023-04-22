@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.Model
 {
-    internal class Day
+    class Day
     {
     }
 }

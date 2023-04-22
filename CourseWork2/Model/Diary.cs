@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.Model
 {
-    internal class Diary
+    class Diary
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        
     }
 }

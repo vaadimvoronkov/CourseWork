@@ -8,15 +8,13 @@
         Title="MainWindow" Height="450" Width="805" FontFamily="Microsoft YaHei Light">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.3*"/>
-        </Grid.ColumnDefinitions>
 
-        <TabControl Grid.Row="0" Grid.Column="0" Margin="5,0,5,0">
+        <TabControl Grid.Row="2" Grid.Column="0" Margin="5,0,5,0">
             <TabItem Name="Lessons" Margin="0,0,0,0">
                 <TabItem.Header>
                     <TextBlock Text ="Lessons"/>
@@ -33,7 +31,7 @@
                     </ListView.View>
                 </ListView>
             </TabItem>
-            
+
             <TabItem Name="ToDoList" Margin="0,0,0,0">
                 <TabItem.Header>
                     <TextBlock Text ="GeneralNotes"/>
@@ -48,6 +46,8 @@
                 </ListView>
             </TabItem>
         </TabControl>
-        <Calendar Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,5,5,5"/>
+
+        <DatePicker Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,5" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="gyu"/>
+        <Label Content="Diary" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="16"/>
     </Grid>
 </Window>
