@@ -8,8 +8,9 @@ namespace CourseWork2.Model
 {
     class Lesson
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public string LessonName { get; set; }
+        public string Task { get; set; }
+        public TimeInterval TimeInterval { get; set; }
 
     }
 }
