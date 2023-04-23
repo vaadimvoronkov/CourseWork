@@ -47,7 +47,7 @@
             </TabItem>
         </TabControl>
 
-        <DatePicker Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,5" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="gyu" SelectedDate="{Binding DateSelected}"/>
+        <DatePicker Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,5" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="gyu"/>
         <Label Content="Diary" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="16"/>
     </Grid>
 </Window>
