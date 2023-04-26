@@ -40,7 +40,7 @@ namespace CourseWork2.ViewModel
 
         public MainVM() 
         {
-            SelectedDate= DateTime.Now;
+             SelectedDate= DateTime.Now;
             _lessons = new ObservableCollection<Lesson>()
             {
                 new Lesson("Name", "Task", new TimeInterval(new DateTime(2022,01,01),new DateTime(2022,01,02)),false),
@@ -49,7 +49,11 @@ namespace CourseWork2.ViewModel
                 new Lesson("Name", "Task", new TimeInterval(new DateTime(2022,01,01),new DateTime(2022,01,02)),false),
 
             };
+        }
 
+        private void UpdateLessons()
+        {
+            _lessons.Clear(); // После отчистки необходимо заполнить новыми уроками таблицу ?
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
