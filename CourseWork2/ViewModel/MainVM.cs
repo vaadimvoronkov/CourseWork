@@ -1,37 +1,56 @@
-﻿using System;
+﻿using CourseWork2.Model;
+using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
 namespace CourseWork2.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
-        private DateTime selectedDate;
+        private DateTime _selectedDate;
+        private ObservableCollection <Lesson> _lessons;
+
         public DateTime SelectedDate
         {
             get
             {
-                return selectedDate;
+                return _selectedDate;
             }
             set
             {
-                selectedDate = value;
+                _selectedDate = value;
                 OnPropertyChanged("SelectedDate");
 
             }
         }
-        //public InformationOnDateVM informationOnDateVM
-        //{
-        //    get 
-        //    { 
-        //        return informationOnDateVM; 
-        //    }
-        //    set
-        //    {
-        //        informationOnDateVM = value;
-        //        OnPropertyChanged("SelectedInformation");
-        //    }
-        //}
+        public ObservableCollection<Lesson> Lessons
+        {
+            get
+            {
+                return _lessons;
+            }
+            set
+            {
+                _lessons = value;
+                OnPropertyChanged("Lessons");
+            }
+        }
+
+        public MainVM() 
+        {
+            SelectedDate= DateTime.Now;
+            _lessons = new ObservableCollection<Lesson>()
+            {
+                new Lesson("Name", "Task", new TimeInterval(new DateTime(2022,01,01),new DateTime(2022,01,02)),false),
+                new Lesson("Name", "Task", new TimeInterval(new DateTime(2022,01,01),new DateTime(2022,01,02)),false),
+                new Lesson("Name", "Task", new TimeInterval(new DateTime(2022,01,01),new DateTime(2022,01,02)),false),
+                new Lesson("Name", "Task", new TimeInterval(new DateTime(2022,01,01),new DateTime(2022,01,02)),false),
+
+            };
+
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

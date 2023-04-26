@@ -11,10 +11,6 @@ namespace CourseWork2.Model
             FirstTime = firstTime;
             SecondTime = secondTime;
         }
-        //public DateTime CalculateInterval()
-        //{
-        //    return
-        //}
     }
 
   

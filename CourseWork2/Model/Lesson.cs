@@ -7,11 +7,12 @@
         public TimeInterval Interval { get; set; }
         public bool Progress { get; set; }
 
-        public Lesson(string lessonName, string task,TimeInterval interval)
+        public Lesson(string lessonName, string task, TimeInterval interval, bool progress)
         {
             LessonName = lessonName ?? throw new System.ArgumentNullException(nameof(lessonName));
             Task = task ?? throw new System.ArgumentNullException(nameof(task));
-            Interval = interval ?? throw new System.ArgumentNullException(nameof(interval));
+            Interval= interval ?? throw new System.ArgumentNullException(nameof(interval));
+            Progress = progress;
         }
     }
 }

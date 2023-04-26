@@ -36,7 +36,6 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedTask");
             }
         }
-        
         public bool IsCompleted
         {
             get
@@ -49,11 +48,6 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedProgress");
             }
         }
-
-        //public string Interval
-        //{
-
-        //}
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
