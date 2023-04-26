@@ -5,6 +5,7 @@
         public string LessonName { get; set; }
         public string Task { get; set; }
         public TimeInterval Interval { get; set; }
+        public bool Progress { get; set; }
 
         public Lesson(string lessonName, string task,TimeInterval interval)
         {

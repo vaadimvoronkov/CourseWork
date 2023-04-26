@@ -36,7 +36,24 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedTask");
             }
         }
+        
+        public bool IsCompleted
+        {
+            get
+            {
+                return _lesson.Progress;
+            }
+            set
+            {
+                _lesson.Progress = value;
+                OnPropertyChanged("ChangedProgress");
+            }
+        }
 
+        //public string Interval
+        //{
+
+        //}
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

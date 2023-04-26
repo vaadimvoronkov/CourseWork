@@ -20,18 +20,18 @@ namespace CourseWork2.ViewModel
 
             }
         }
-        public InformationOnDateVM informationOnDateVM
-        {
-            get 
-            { 
-                return informationOnDateVM; 
-            }
-            set
-            {
-                informationOnDateVM = value;
-                OnPropertyChanged("SelectedInformation");
-            }
-        }
+        //public InformationOnDateVM informationOnDateVM
+        //{
+        //    get 
+        //    { 
+        //        return informationOnDateVM; 
+        //    }
+        //    set
+        //    {
+        //        informationOnDateVM = value;
+        //        OnPropertyChanged("SelectedInformation");
+        //    }
+        //}
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
