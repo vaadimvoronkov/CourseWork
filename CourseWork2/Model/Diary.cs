@@ -6,7 +6,12 @@ namespace CourseWork2.Model
     public class Diary
     {
         private List<Day> _days = new();
- 
+        public string Name { get; set; }
+        public List<Day> Days { get => _days;}
+        public Diary(string name)
+        {
+            Name = name;
+        }
         public void AddDay(Day day)
         {
             _days.Add(day);

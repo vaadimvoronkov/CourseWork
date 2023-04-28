@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.ViewModel
 {
-    public class InformationOnDateVM: INotifyPropertyChanged
+    public class LessonVM: INotifyPropertyChanged 
     {
         private Lesson _lesson;
+
+        #region Реализация свойств LessonVM
         public string LessonName
         {
             get
@@ -36,7 +38,7 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedTask");
             }
         }
-        public bool IsCompleted
+        public bool Progress
         {
             get
             {
@@ -48,11 +50,21 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedProgress");
             }
         }
+        public string Interval
+        {
+            get
+            {
+                return _lesson.FirstTime.ToString() +":"+ _lesson.LastTime.ToString();
+            }
+        }
+        #endregion
 
+        #region Реализация INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        #endregion
     }
 }

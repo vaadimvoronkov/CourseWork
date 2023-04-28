@@ -6,6 +6,7 @@ namespace CourseWork2.Model
     public class Day
     {
         private List<Lesson> _lessons = new();
+        public List<Lesson> Lessons { get => _lessons; }
 
         public void AddLesson(Lesson lesson)
         {
