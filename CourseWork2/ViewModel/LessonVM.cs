@@ -13,7 +13,6 @@ namespace CourseWork2.ViewModel
     {
         private Lesson _lesson;
 
-        #region Реализация свойств LessonVM
         public string LessonName
         {
             get
@@ -57,7 +56,6 @@ namespace CourseWork2.ViewModel
                 return _lesson.FirstTime.ToString() +":"+ _lesson.LastTime.ToString();
             }
         }
-        #endregion
 
         public LessonVM(Lesson lesson)
         {

@@ -12,7 +12,6 @@ namespace CourseWork2.ViewModel
         private DateTime _selectedDate;
         private LessonsTabVM _lessons;
 
-        #region Реализация свойств MainVM
         public DateTime SelectedDate
         {
             get
@@ -38,9 +37,6 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("LessonsTab");
             }
         }
-        #endregion
-
-        #region Методы MainVM
         public MainVM()
         {
             SelectedDate = DateTime.Now;
@@ -53,7 +49,6 @@ namespace CourseWork2.ViewModel
             var lessonsTabVM = new LessonsTabVM();
 
         }
-        #endregion
 
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
