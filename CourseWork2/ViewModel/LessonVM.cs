@@ -59,6 +59,11 @@ namespace CourseWork2.ViewModel
         }
         #endregion
 
+        public LessonVM(Lesson lesson)
+        {
+            _lesson = lesson;
+        }
+
         #region Реализация INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

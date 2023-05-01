@@ -12,9 +12,23 @@ namespace CourseWork2.ViewModel
     public class LessonsTabVM 
     {
         private ObservableCollection<LessonVM> _lessons;
-        public ObservableCollection<LessonVM> Lessons
+
+        public ObservableCollection<LessonVM> Lessons { get => _lessons; }
+
+        #region Реализация методов LessonsTabVM
+        public void AddLessonVM(LessonVM lessonVM)
         {
-            get { return _lessons; }
+            _lessons.Add(lessonVM);
         }
+        public void RemoveLessonVM(LessonVM lessonVM)
+        {
+            _lessons.Remove(lessonVM);
+        }
+        public void ClearLessons()
+        {
+            _lessons.Clear();
+        }
+        #endregion
+
     }
 }

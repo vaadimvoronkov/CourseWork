@@ -44,10 +44,14 @@ namespace CourseWork2.ViewModel
         public MainVM()
         {
             SelectedDate = DateTime.Now;
+            Lessons = new LessonsTabVM();
+            Lesson lesson = new Lesson("fds","fds",false,DateTime.Today,DateTime.Today,DateTime.Today);
+            Lessons.AddLessonVM(new LessonVM(lesson));
         }
         private void UpdateLessons()
         {
-             var updatedLessons = new LessonsTabVM();
+            var lessonsTabVM = new LessonsTabVM();
+
         }
         #endregion
 

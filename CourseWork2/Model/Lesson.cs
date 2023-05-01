@@ -7,11 +7,11 @@ namespace CourseWork2.Model
         public string LessonName { get; set; }
         public string Task { get; set; }
         public bool Progress { get; set; }
-        public TimeSpan FirstTime { get; set; }
-        public TimeSpan LastTime { get; set; }
+        public DateTime FirstTime { get; set; }
+        public DateTime LastTime { get; set; }
         public DateTime Date { get; set; }
 
-        public Lesson(string lessonName, string task, bool progress, TimeSpan firstTime, TimeSpan secondTime, DateTime date)
+        public Lesson(string lessonName, string task, bool progress, DateTime firstTime, DateTime secondTime, DateTime date)
         {
             LessonName = lessonName ?? throw new ArgumentNullException(nameof(lessonName));
             Task = task ?? throw new ArgumentNullException(nameof(task));
