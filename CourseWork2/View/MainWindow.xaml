@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <TabControl Grid.Row="2" Grid.Column="0" Margin="5,0,5,0">
-            <TabItem Name="Lessons" Margin="0,0,0,0">
+            <TabItem Name="Lessons" Margin="0,0,0,0" DataContext="{Binding LessonsTab}">
                 <TabItem.Header>
                     <TextBlock Text ="Lessons"/>
                 </TabItem.Header>

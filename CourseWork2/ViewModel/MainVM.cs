@@ -25,7 +25,7 @@ namespace CourseWork2.ViewModel
                 UpdateLessons();
             }
         }
-        public LessonsTabVM Lessons
+        public LessonsTabVM LessonsTab
         {
             get
             {
@@ -40,9 +40,8 @@ namespace CourseWork2.ViewModel
         public MainVM()
         {
             SelectedDate = DateTime.Now;
-            Lessons = new LessonsTabVM();
+            LessonsTab = new LessonsTabVM();
             Lesson lesson = new Lesson("fds","fds",false,DateTime.Today,DateTime.Today,DateTime.Today);
-            Lessons.AddLessonVM(new LessonVM(lesson));
         }
         private void UpdateLessons()
         {
