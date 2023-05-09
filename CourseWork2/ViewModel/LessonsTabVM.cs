@@ -12,8 +12,14 @@ namespace CourseWork2.ViewModel
     public class LessonsTabVM // Добавить конструктор, который принимает дату, после чего можно создать метод LoadDate
     {
         private ObservableCollection<LessonVM> _lessons = new();
-
+        private DateTime dateTime;
+        public LessonsTabVM(DateTime dateTime)
+        {
+            this.dateTime = dateTime;
+        }
         public ObservableCollection<LessonVM> Lessons { get => _lessons; }
 
+        
+ 
     }
 }

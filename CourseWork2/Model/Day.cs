@@ -9,6 +9,7 @@ namespace CourseWork2.Model
     {
         private List<Lesson> _lessons = new();
         public List<Lesson> Lessons { get => _lessons; }
+
         public DateTime Date { get; set; }
 
         public void AddLesson(Lesson lesson)

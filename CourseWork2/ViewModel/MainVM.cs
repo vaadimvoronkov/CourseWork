@@ -1,9 +1,11 @@
 ﻿using CourseWork2.Model;
+using CourseWork2.View;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace CourseWork2.ViewModel
 {
@@ -11,8 +13,14 @@ namespace CourseWork2.ViewModel
     {
         private DateTime _selectedDate;
         private LessonsTabVM _lessons;
+        private RelayCommand openAddNewLessonWindow;
+        public MainVM()
+        {
+            SelectedDate = DateTime.Now;
+        }
 
-        public DateTime SelectedDate
+        #region Реализация свойств для приватных полей MainVM
+        public DateTime SelectedDate 
         {
             get
             {
@@ -25,7 +33,7 @@ namespace CourseWork2.ViewModel
                 UpdateLessons();
             }
         }
-        public LessonsTabVM LessonsTab
+        public LessonsTabVM LessonsTab 
         {
             get
             {
@@ -37,17 +45,37 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("LessonsTab");
             }
         }
-        public MainVM()
+        public RelayCommand OpenNewAddLessonWindow
         {
-            SelectedDate = DateTime.Now;
-            LessonsTab = new LessonsTabVM();
-            Lesson lesson = new Lesson("fds","fds",false,DateTime.Today,DateTime.Today,DateTime.Today);
+            get
+            {
+                return openAddNewLessonWindow ?? new RelayCommand(obj =>
+                {
+                    OpenAddNewLessonWindow();
+                });
+            }
         }
+        #endregion
+
         private void UpdateLessons()
         {
-            var lessonsTabVM = new LessonsTabVM();
+            var lessonsTabVM = new LessonsTabVM(SelectedDate);
 
         }
+
+        #region Реализация открытия нового окна
+        private void OpenAddNewLessonWindow()
+        {
+            AddNewLessonWindow window = new();
+            SetCenterPositionAndOpen(window);
+        }
+        private void SetCenterPositionAndOpen(Window window)
+        {
+            window.Owner = Application.Current.MainWindow;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
+        }
+        #endregion
 
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;

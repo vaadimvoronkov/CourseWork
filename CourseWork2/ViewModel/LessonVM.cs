@@ -12,7 +12,12 @@ namespace CourseWork2.ViewModel
     public class LessonVM: INotifyPropertyChanged 
     {
         private Lesson _lesson;
+        public LessonVM(Lesson lesson)
+        {
+            _lesson = lesson;
+        }
 
+        #region Реализация свойств для lesson
         public string LessonName
         {
             get
@@ -53,14 +58,10 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.FirstTime.ToString() +":"+ _lesson.LastTime.ToString();
+                return _lesson.FirstTime.ToString() + ":" + _lesson.LastTime.ToString();
             }
         }
-
-        public LessonVM(Lesson lesson)
-        {
-            _lesson = lesson;
-        }
+        #endregion
 
         #region Реализация INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
