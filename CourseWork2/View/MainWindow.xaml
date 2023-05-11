@@ -30,6 +30,14 @@
                     </ListView.View>
                 </ListView>
             </TabItem>
+            <TabItem Name="AddLesson" Margin="0,0,0,0" DataContext="{Binding LessonsTab}">
+                <TabItem.Header>
+                    <TextBlock Text ="Add Lesson"/>
+                </TabItem.Header>
+                <local:AddLessonView DataContext="{Binding LessonVM}">
+                    
+                </local:AddLessonView>
+            </TabItem>
         </TabControl>
 
         <DatePicker Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,5" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="gyu" SelectedDate="{Binding SelectedDate}"/>

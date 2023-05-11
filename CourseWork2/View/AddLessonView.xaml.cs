@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CourseWork2.View
 {
     /// <summary>
-    /// Логика взаимодействия для AddNewLessonWindow.xaml
+    /// Логика взаимодействия для AddLessonView.xaml
     /// </summary>
-    public partial class AddNewLessonWindow : Window
+    public partial class AddLessonView : UserControl
     {
-        public AddNewLessonWindow()
+        public AddLessonView()
         {
             InitializeComponent();
         }

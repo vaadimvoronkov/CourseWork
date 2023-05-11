@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="CourseWork2.View.AddLessonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourseWork2.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="300">
+            
+            <Label Content ="Enter Lesson Name" HorizontalAlignment="Center"/>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300"/>
+            
+            <Label Content ="Select Date" HorizontalAlignment="Center"/>
+            <DatePicker HorizontalAlignment="Center" Width="300" Height="24"></DatePicker>
+
+            <Label Content ="Enter Task" HorizontalAlignment="Center"/>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300"/>
+
+            <Label Content ="Enter First Time" HorizontalAlignment="Center"/>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300"/>
+            
+            <Label Content ="Enter Second Time" HorizontalAlignment="Center"/>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Margin="0,0,0,25"/>
+
+            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Add Lesson">
+                
+            </Button>
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

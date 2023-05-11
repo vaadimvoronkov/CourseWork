@@ -13,7 +13,6 @@ namespace CourseWork2.ViewModel
     {
         private DateTime _selectedDate;
         private LessonsTabVM _lessons;
-        private RelayCommand openAddNewLessonWindow;
         public MainVM()
         {
             SelectedDate = DateTime.Now;
@@ -45,16 +44,6 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("LessonsTab");
             }
         }
-        public RelayCommand OpenNewAddLessonWindow
-        {
-            get
-            {
-                return openAddNewLessonWindow ?? new RelayCommand(obj =>
-                {
-                    OpenAddNewLessonWindow();
-                });
-            }
-        }
         #endregion
 
         private void UpdateLessons()
@@ -63,19 +52,7 @@ namespace CourseWork2.ViewModel
 
         }
 
-        #region Реализация открытия нового окна
-        private void OpenAddNewLessonWindow()
-        {
-            AddNewLessonWindow window = new();
-            SetCenterPositionAndOpen(window);
-        }
-        private void SetCenterPositionAndOpen(Window window)
-        {
-            window.Owner = Application.Current.MainWindow;
-            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            window.ShowDialog();
-        }
-        #endregion
+       
 
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
