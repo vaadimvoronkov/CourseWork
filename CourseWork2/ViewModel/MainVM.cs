@@ -52,8 +52,6 @@ namespace CourseWork2.ViewModel
 
         }
 
-       
-
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

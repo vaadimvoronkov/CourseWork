@@ -18,6 +18,10 @@ namespace CourseWork2.ViewModel
             this.dateTime = dateTime;
         }
         public ObservableCollection<LessonVM> Lessons { get => _lessons; }
+        private void LoadDate()
+        {
+
+        }
 
         
  

@@ -7,27 +7,47 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="300">
-            
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
             <Label Content ="Enter Lesson Name" HorizontalAlignment="Center"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300"/>
-            
-            <Label Content ="Select Date" HorizontalAlignment="Center"/>
-            <DatePicker HorizontalAlignment="Center" Width="300" Height="24"></DatePicker>
+            <TextBox x:Name="LessonNameTextbox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5"/>
 
-            <Label Content ="Enter Task" HorizontalAlignment="Center"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300"/>
+            <Label Content ="Select Date" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <DatePicker HorizontalAlignment="Center" Width="300" Height="24" Margin="0,0,0,5"></DatePicker>
 
-            <Label Content ="Enter First Time" HorizontalAlignment="Center"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300"/>
-            
+            <Label Content ="Enter Task" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="TaskTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5"/>
+
+            <Label Content ="Enter First Time" HorizontalAlignment="Center" Height="23"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="300" Margin="0,0,0,5">
+                <StackPanel Margin="0,0,10,0">
+                    <Label Content ="Hour" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center"/>
+                    <TextBox x:Name="FirstTimeHourTextBox" MinWidth="145" Width="99.5" Height="20"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content ="Minute" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center"/>
+                    <TextBox x:Name="FirstTimeMinuteTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="145" Height="20"/>
+                </StackPanel>
+
+            </StackPanel>
+
             <Label Content ="Enter Second Time" HorizontalAlignment="Center"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Margin="0,0,0,25"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="300">
+                <StackPanel Margin="0,0,10,0">
+                    <Label Content ="Hour" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="LastTimeHourTextBox" MinWidth="145" Width="99.5" Height="20"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,10">
+                    <Label Content ="Minute" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="LastTimeMinuteTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="145" Height="20"/>
+                </StackPanel>
 
-            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Add Lesson">
-                
-            </Button>
-            
+            </StackPanel>
+
+            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Add Lesson" Margin="0,0,0,5"/>
+            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Save"/>
+
         </StackPanel>
     </Grid>
 </UserControl>

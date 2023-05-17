@@ -18,7 +18,7 @@ namespace CourseWork2.View
     /// <summary>
     /// Логика взаимодействия для AddLessonView.xaml
     /// </summary>
-    public partial class AddLessonView : UserControl
+    public partial class AddLessonView : UserControl // создать новый viewmodel. добавить кнопку сохранить. перед отправкой вьюмодела убедиться, что все данные введены, после чего отправить в модель
     {
         public AddLessonView()
         {
