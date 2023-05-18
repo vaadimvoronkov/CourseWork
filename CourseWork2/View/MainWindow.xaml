@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWork2.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="805" FontFamily="Microsoft YaHei Light">
+        Title="MainWindow" Height="560" Width="805" FontFamily="Microsoft YaHei Light">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -19,8 +19,10 @@
                 <TabItem.Header>
                     <TextBlock Text ="Lessons"/>
                 </TabItem.Header>
+                
                 <ListView ItemsSource="{Binding Lessons}">
                     <ListView.View>
+                        
                         <GridView>
                             <GridViewColumn Header ="Lesson Name"/>
                             <GridViewColumn Header ="Task"/>
@@ -28,15 +30,18 @@
                             <GridViewColumn Header ="Progress"/>
                         </GridView>
                     </ListView.View>
+                    
                 </ListView>
             </TabItem>
+            
             <TabItem Name="AddLesson" Margin="0,0,0,0" DataContext="{Binding LessonsTab}">
+                
                 <TabItem.Header>
                     <TextBlock Text ="Add Lesson"/>
                 </TabItem.Header>
-                <local:AddLessonView DataContext="{Binding LessonVM}">
-                    
-                </local:AddLessonView>
+
+                <local:AddLessonView DataContext="{Binding AddLessonVM}"/> <!--<local:AddLessonView DataContext="{Binding LessonVM}"/>-->
+
             </TabItem>
         </TabControl>
 

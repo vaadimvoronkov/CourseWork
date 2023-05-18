@@ -42,10 +42,9 @@
                     <Label Content ="Minute" HorizontalAlignment="Center"/>
                     <TextBox x:Name="LastTimeMinuteTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="145" Height="20"/>
                 </StackPanel>
-
             </StackPanel>
 
-            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Add Lesson" Margin="0,0,0,5"/>
+            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Add Lesson" Margin="0,0,0,5" Command="{Binding AddLesson}"/>
             <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Save"/>
 
         </StackPanel>
