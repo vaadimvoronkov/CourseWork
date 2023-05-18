@@ -26,7 +26,8 @@
                         <GridView>
                             <GridViewColumn Header ="Lesson Name"/>
                             <GridViewColumn Header ="Task"/>
-                            <GridViewColumn Header ="Time Interval"/>
+                            <GridViewColumn Header ="First Time"/>
+                            <GridViewColumn Header ="Last Time"/>
                             <GridViewColumn Header ="Progress"/>
                         </GridView>
                     </ListView.View>

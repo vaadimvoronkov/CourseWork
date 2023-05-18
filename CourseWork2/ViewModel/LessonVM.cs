@@ -18,19 +18,19 @@ namespace CourseWork2.ViewModel
         }
 
         #region Реализация свойств для lesson
-        public string LessonName
+        public string Name
         {
             get
             {
-                return _lesson.LessonName;
+                return _lesson.Name;
             }
             set
             {
-                _lesson.LessonName = value;
+                _lesson.Name = value;
                 OnPropertyChanged("ChangedName");
             }
         }
-        public string LessonTask
+        public string Task
         {
             get
             {
@@ -54,11 +54,29 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedProgress");
             }
         }
-        public string Interval
+        public DateTime FirstTime
         {
             get
             {
-                return _lesson.FirstTime.ToString() + ":" + _lesson.LastTime.ToString();
+                return _lesson.FirstTime;
+            }
+            set 
+            {
+                _lesson.FirstTime = value;
+                OnPropertyChanged("ChangedFirstTime");
+            }
+        }
+
+        public DateTime LastTime
+        {
+            get
+            {
+                return _lesson.LastTime;
+            }
+            set
+            {
+                _lesson.LastTime = value;
+                OnPropertyChanged("ChangedLastTime");
             }
         }
         #endregion

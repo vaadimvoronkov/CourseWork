@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.ViewModel
 {
-    public class LessonsTabVM // Добавить конструктор, который принимает дату, после чего можно создать метод LoadDate
+    public class LessonsTabVM // Добавить конструктор, который принимает дату, после чего можно создать метод LoadDate, который берет данные из репозитория
     {
         private ObservableCollection<LessonVM> _lessons = new();
+        public ObservableCollection<LessonVM> Lessons { get => _lessons; }
         public LessonsTabVM(DateTime dateTime)
         {
-            LoadDate(dateTime);
+            //LoadDate(dateTime);
         }
-        public ObservableCollection<LessonVM> Lessons { get => _lessons; }
         private void LoadDate(DateTime dateTime)
         {
             //var loadedlessons = Lessons.Where(lessonVM => lessonVM.Date == dateTime);

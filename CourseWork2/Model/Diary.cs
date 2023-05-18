@@ -9,7 +9,6 @@ namespace CourseWork2.Model
         private List<Day> _days = new();
         public List<Day> Days { get => _days;}
 
-        //private Dictionary<DateTime,Day> _daysDict = new();
         public void AddDay(Day day)
         {
             _days.Add(day);

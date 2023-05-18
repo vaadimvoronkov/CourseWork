@@ -15,7 +15,7 @@ using System.Windows.Controls;
 
 namespace CourseWork2.ViewModel
 {
-    internal class AddLessonVM : INotifyPropertyChanged //сделать propertychanged, сделать привязку комманд на кнопку. Создать RelayCommand, в котором будет отправляться в репозиторий заполненный  AddLessonView. После чего проверить и сохранить данные в репозиторий
+    internal class AddLessonVM : INotifyPropertyChanged // Создать RelayCommand, в котором будет отправляться в репозиторий заполненный  AddLessonView. После чего проверить и сохранить данные в репозиторий
     {
         private Lesson _lesson;
 
@@ -35,16 +35,16 @@ namespace CourseWork2.ViewModel
         {
             get 
             { 
-                return _lesson.LessonName;
+                return _lesson.Name;
             }
             set 
             { 
-                _lesson.LessonName = value;
+                _lesson.Name = value;
                 OnPropertyChanged("LessonName");
             }
         }
 
-        public DateTime Date
+        public DateTime LessonDate
         {
             get
             {
@@ -53,11 +53,11 @@ namespace CourseWork2.ViewModel
             set
             {
                 _lesson.Date = value;
-                OnPropertyChanged("Date");
+                OnPropertyChanged("LessonDate");
             }
         }
 
-        public string Task
+        public string LessonTask
         {
             get
             {
@@ -66,7 +66,7 @@ namespace CourseWork2.ViewModel
             set
             {
                 _lesson.Task = value;
-                OnPropertyChanged("Task");
+                OnPropertyChanged("LessonTask");
             }
         }
 
@@ -75,7 +75,7 @@ namespace CourseWork2.ViewModel
         public int LastTimeHour { get; set; }
         public int LastTimeMinute { get; set; }
 
-        public DateTime FirstTime
+        public DateTime LessonFirstTime
         {
             get
             {
@@ -84,11 +84,11 @@ namespace CourseWork2.ViewModel
             set
             {
                 _lesson.FirstTime = FormTime(FirstTimeHour,FirstTimeMinute);
-                OnPropertyChanged("FirstTime");
+                OnPropertyChanged("LessonFirstTime");
             }
         }
 
-        public DateTime LastTime
+        public DateTime LessonLastTime
         {
             get
             {
@@ -97,14 +97,14 @@ namespace CourseWork2.ViewModel
             set
             {
                 _lesson.LastTime = FormTime(LastTimeHour, LastTimeMinute);
-                OnPropertyChanged("LastTime");
+                OnPropertyChanged("LessonLastTime");
             }
         }
         #endregion
 
         private DateTime FormTime(int hours,int minutes)
         {
-            return new DateTime(Date.Year, Date.Month, Date.Day, hours, minutes, 0);
+            return new DateTime(LessonDate.Year, LessonDate.Month, LessonDate.Day, hours, minutes, 0);
         }
 
         #region Реализация INotifyProperyChanged
