@@ -26,7 +26,9 @@ namespace CourseWork2.ViewModel
             {
                 return  new RelayCommand(obj =>
                 {
-                    
+
+                    Lesson lesson = new Lesson(LessonName,LessonTask,false,LessonFirstTime,LessonLastTime,LessonDate);
+
                 });
                   
             }
@@ -70,10 +72,56 @@ namespace CourseWork2.ViewModel
             }
         }
 
-        public int FirstTimeHour { get; set; }
-        public int FirstTimeMinute { get; set; }
-        public int LastTimeHour { get; set; }
-        public int LastTimeMinute { get; set; }
+        public int FirstTimeHour
+        {
+            get
+            {
+                return FirstTimeHour;
+            }
+            set 
+            {
+                FirstTimeHour = value; 
+                OnPropertyChanged("FirstTimeHour");
+            }
+        }
+
+        public int FirstTimeMinute
+        {
+            get
+            {
+                return FirstTimeMinute;
+            }
+            set
+            {
+                FirstTimeMinute = value; 
+                OnPropertyChanged("FirstTimeMinute");
+            }
+        }
+        public int LastTimeHour
+        {
+            get
+            {
+                return LastTimeHour;
+            }
+            set
+            {
+               LastTimeHour = value;
+               OnPropertyChanged("LastTimeHour");
+            }
+        }
+
+        public int LastTimeMinute
+        {
+            get
+            {
+                return LastTimeMinute;
+            }
+            set
+            {
+               LastTimeMinute = value;
+               OnPropertyChanged("LastTimeMinute");
+            }
+        }
 
         public DateTime LessonFirstTime
         {
