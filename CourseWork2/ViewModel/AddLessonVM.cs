@@ -24,11 +24,24 @@ namespace CourseWork2.ViewModel
                 return  new RelayCommand(obj =>
                 {
 
-                    Lesson lesson = new(LessonName,LessonTask,false,LessonFirstTime,LessonLastTime,LessonDay);
-                    repository.lessons.Add(lesson);
+                    _lesson = new(LessonName,LessonTask,false,LessonFirstTime,LessonLastTime,LessonDay);
+
 
                 });
                   
+            }
+        }
+        public RelayCommand SaveLesson
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    repository.lessons.Add(_lesson);
+
+                });
+
             }
         }
         public string LessonName
