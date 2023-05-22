@@ -18,7 +18,7 @@ namespace CourseWork2.ViewModel
             SelectedDate = DateTime.Now;
         }
 
-        #region Реализация свойств для приватных полей MainVM
+        #region Реализация свойств 
         public DateTime SelectedDate 
         {
             get

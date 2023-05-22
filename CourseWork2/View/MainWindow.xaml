@@ -19,6 +19,7 @@
                 <TabItem.Header>
                     <TextBlock Text ="Lessons"/>
                 </TabItem.Header>
+
                 
                 <ListView ItemsSource="{Binding Lessons}">
                     <ListView.View>
@@ -28,7 +29,13 @@
                             <GridViewColumn Header ="Task"/>
                             <GridViewColumn Header ="First Time"/>
                             <GridViewColumn Header ="Last Time"/>
-                            <GridViewColumn Header ="Progress"/>
+                            <GridViewColumn  Header ="Progress">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Progress}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                     

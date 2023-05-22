@@ -1,26 +1,23 @@
 ﻿using CourseWork2.Commands;
 using CourseWork2.Model;
-using CourseWork2.View;
+using CourseWork2.Model.Repository;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Numerics;
 using System.Runtime.CompilerServices;
-using System.Security.Policy;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace CourseWork2.ViewModel
 {
-    internal class AddLessonVM : INotifyPropertyChanged // Создать RelayCommand, в котором будет отправляться в репозиторий заполненный  AddLessonView. После чего проверить и сохранить данные в репозиторий
+    public class AddLessonVM : INotifyPropertyChanged // Создать RelayCommand, в котором будет отправляться в репозиторий заполненный  AddLessonView. После чего проверить и сохранить данные в репозиторий
     {
         private Lesson _lesson;
-
+        private Repository repository;
+        public AddLessonVM(Repository repository)
+        {
+            this.repository = repository;
+        }
+       
         #region Реализация свойств
-        public RelayCommand AddLesson
+        public RelayCommand AddLesson //передавать репозиторий в конструктор
         {
             get
             {
