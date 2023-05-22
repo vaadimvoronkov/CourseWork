@@ -10,21 +10,8 @@ namespace CourseWork2.Model.Repository
 {
     public class Repository
     {
-
-        private List<Lesson> _lessons;
-        private List<Day> days;
-        private ObservableCollection<LessonVM> lessonVMs;
-        private LessonsTabVM tabVM;
-        public void AddLesson(Lesson lesson)
-        {
-            _lessons.Add(lesson);
-        }
-
-        public void RemoveLesson(Lesson lesson)
-        {
-            _lessons.Remove(lesson);
-        }
-
-
+        public ObservableCollection<LessonVM> lessonVMs = new();
+        public List<Lesson> lessons = new();
+        public List<Day> days = new();
     }
 }

@@ -17,14 +17,15 @@ namespace CourseWork2.ViewModel
         }
        
         #region Реализация свойств
-        public RelayCommand AddLesson //передавать репозиторий в конструктор
+        public RelayCommand AddLesson 
         {
             get
             {
                 return  new RelayCommand(obj =>
                 {
 
-                    Lesson lesson = new Lesson(LessonName,LessonTask,false,LessonFirstTime,LessonLastTime,LessonDate);
+                    Lesson lesson = new(LessonName,LessonTask,false,LessonFirstTime,LessonLastTime,LessonDay);
+                    repository.lessons.Add(lesson);
 
                 });
                   
@@ -43,16 +44,16 @@ namespace CourseWork2.ViewModel
             }
         }
 
-        public DateTime LessonDate
+        public Day LessonDay
         {
             get
             {
-                return _lesson.Date;
+                return _lesson.Day;
             }
             set
             {
-                _lesson.Date = value;
-                OnPropertyChanged("LessonDate");
+                _lesson.Day = value;
+                OnPropertyChanged("LessonDay");
             }
         }
 
@@ -149,7 +150,7 @@ namespace CourseWork2.ViewModel
 
         private DateTime FormTime(int hours,int minutes)
         {
-            return new DateTime(LessonDate.Year, LessonDate.Month, LessonDate.Day, hours, minutes, 0);
+            return new DateTime(LessonDay.Date.Year, LessonDay.Date.Month, LessonDay.Date.Day, hours, minutes, 0);
         }
 
         #region Реализация INotifyProperyChanged

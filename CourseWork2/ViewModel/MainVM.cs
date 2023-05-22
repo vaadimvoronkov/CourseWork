@@ -1,4 +1,5 @@
 ﻿using CourseWork2.Model;
+using CourseWork2.Model.Repository;
 using CourseWork2.View;
 using System;
 using System.Collections.ObjectModel;
@@ -13,8 +14,10 @@ namespace CourseWork2.ViewModel
     {
         private DateTime _selectedDate;
         private LessonsTabVM _lessons;
-        public MainVM()
+        private Repository repository;
+        public MainVM(Repository repository)
         {
+            this.repository = repository;
             SelectedDate = DateTime.Now;
         }
 
@@ -48,8 +51,7 @@ namespace CourseWork2.ViewModel
 
         private void UpdateLessons()
         {
-            var lessonsTabVM = new LessonsTabVM(SelectedDate);
-
+            _lessons = new LessonsTabVM(SelectedDate, repository);
         }
 
         #region Реализация INotifyProperyChanged

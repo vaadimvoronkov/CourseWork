@@ -79,6 +79,7 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedLastTime");
             }
         }
+        public DateTime Date { get => _lesson.Day.Date; }
         #endregion
 
         #region Реализация INotifyPropertyChanged
