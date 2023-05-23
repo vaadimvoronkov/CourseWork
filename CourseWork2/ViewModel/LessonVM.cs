@@ -66,7 +66,6 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedFirstTime");
             }
         }
-
         public DateTime LastTime
         {
             get

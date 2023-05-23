@@ -13,7 +13,7 @@ namespace CourseWork2.ViewModel
     public class MainVM : INotifyPropertyChanged
     {
         private DateTime _selectedDate;
-        private LessonsTabVM _lessons;
+        private LessonsTabVM _lessonsTabVM;
         private Repository repository;
         public MainVM(Repository repository)
         {
@@ -39,11 +39,11 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lessons;
+                return _lessonsTabVM;
             }
             set
             {
-                _lessons = value;
+                _lessonsTabVM = value;
                 OnPropertyChanged("LessonsTab");
             }
         }

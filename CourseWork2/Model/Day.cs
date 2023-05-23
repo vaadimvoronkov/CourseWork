@@ -7,17 +7,16 @@ namespace CourseWork2.Model
 {
     public class Day
     {
-        private List<Lesson> _lessons = new();
-        public List<Lesson> Lessons { get => _lessons; }
+        public List<Lesson> Lessons { get; }
         public DateTime Date { get; set; }
 
         public void AddLesson(Lesson lesson)
         {
-            _lessons.Add(lesson);
+            Lessons.Add(lesson);
         }
         public void RemoveLesson(Lesson lesson)
         {
-            _lessons.Remove(lesson);
+            Lessons.Remove(lesson);
         }
     }
 }

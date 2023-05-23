@@ -6,16 +6,15 @@ namespace CourseWork2.Model
 {
     public class Diary
     {
-        private List<Day> _days = new();
-        public List<Day> Days { get => _days;}
+        public List<Day> Days { get;}
 
         public void AddDay(Day day)
         {
-            _days.Add(day);
+            Days.Add(day);
         }
         public void RemoveDay(Day day)
         {
-            _days.Remove(day);
+            Days.Remove(day);
         }
 
         
