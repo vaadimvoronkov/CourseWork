@@ -51,7 +51,8 @@ namespace CourseWork2.ViewModel
 
         private void UpdateLessons()
         {
-           LessonsTabVM lessonsTabVM = new LessonsTabVM(SelectedDate, repository);
+           LessonsTabVM lessonsTabVM = new LessonsTabVM(repository,SelectedDate);
+            _lessonsTabVM = lessonsTabVM;
         }
 
         #region Реализация INotifyProperyChanged

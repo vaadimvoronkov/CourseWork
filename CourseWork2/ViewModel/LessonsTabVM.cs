@@ -18,7 +18,7 @@ namespace CourseWork2.ViewModel
         private Repository repository;
         public ObservableCollection<LessonVM> Lessons { get => _lessons; }
 
-        public LessonsTabVM(DateTime dateTime, Repository repository)
+        public LessonsTabVM(Repository repository, DateTime dateTime)
         {
             this.repository = repository;
             LoadDate(dateTime);
