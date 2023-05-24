@@ -163,11 +163,11 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.RoomNumber;
+                return _lesson.Room.Number;
             }
             set
             {
-                _lesson.RoomNumber = value;
+                _lesson.Room.Number = value;
                 OnPropertyChanged("LessonRoomNumber");
             }
         }
