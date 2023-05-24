@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.Model
 {
-    internal class Interval
+    public class Interval
     {
+        public DateTime FirstTime { get; set; }
+        public DateTime LastTime { get; set; }
+        public Interval(DateTime firstTime, DateTime secondTime) 
+        {
+            FirstTime= firstTime;
+            LastTime= secondTime;
+        }
     }
 }
