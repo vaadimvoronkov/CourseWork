@@ -78,15 +78,15 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedLastTime");
             }
         }
-        public int RoomNumber
+        public int Room
         {
             get
             {
-                return _lesson.RoomNumber;
+                return _lesson.Room.Number;
             }
             set
             {
-                _lesson.RoomNumber = value;
+                _lesson.Room.Number = value;
                 OnPropertyChanged("ChangedRoomNumber");
             }
         }
