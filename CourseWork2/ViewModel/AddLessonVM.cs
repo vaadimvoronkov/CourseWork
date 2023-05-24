@@ -92,7 +92,7 @@ namespace CourseWork2.ViewModel
             set 
             {
                 FirstTimeHour = value; 
-                OnPropertyChanged("FirstTimeHour");
+                OnPropertyChanged("LessonFirstTimeHour");
             }
         }
 
@@ -105,7 +105,7 @@ namespace CourseWork2.ViewModel
             set
             {
                 FirstTimeMinute = value; 
-                OnPropertyChanged("FirstTimeMinute");
+                OnPropertyChanged("LessonFirstTimeMinute");
             }
         }
         public int LastTimeHour
@@ -117,7 +117,7 @@ namespace CourseWork2.ViewModel
             set
             {
                LastTimeHour = value;
-               OnPropertyChanged("LastTimeHour");
+               OnPropertyChanged("LessonLastTimeHour");
             }
         }
 
@@ -130,7 +130,7 @@ namespace CourseWork2.ViewModel
             set
             {
                LastTimeMinute = value;
-               OnPropertyChanged("LastTimeMinute");
+               OnPropertyChanged("LessonLastTimeMinute");
             }
         }
 
@@ -157,6 +157,54 @@ namespace CourseWork2.ViewModel
             {
                 _lesson.LastTime = FormTime(LastTimeHour, LastTimeMinute);
                 OnPropertyChanged("LessonLastTime");
+            }
+        }
+        public int RoomNumber
+        {
+            get
+            {
+                return _lesson.RoomNumber;
+            }
+            set
+            {
+                _lesson.RoomNumber = value;
+                OnPropertyChanged("LessonRoomNumber");
+            }
+        }
+        public string TeacherFirstName
+        {
+            get
+            {
+                return _lesson.Teacher.FirstName;
+            }
+            set
+            {
+                _lesson.Teacher.FirstName = value;
+                OnPropertyChanged("LessonTeacherFirstName");
+            }
+        }
+        public string TeacherSecondName
+        {
+            get
+            {
+                return _lesson.Teacher.SecondName;
+            }
+            set
+            {
+                _lesson.Teacher.SecondName = value;
+                OnPropertyChanged("LessonTeacherSecondName");
+            }
+        }
+        public string TeacherSurname
+        {
+            get
+            {
+                return _lesson.Teacher.Surname;
+            }
+            set
+            {
+                _lesson.Teacher.Surname = value;
+                OnPropertyChanged("LessonTeacherSurname");
             }
         }
         #endregion

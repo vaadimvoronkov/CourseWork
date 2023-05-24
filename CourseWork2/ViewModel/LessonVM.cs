@@ -78,6 +78,25 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedLastTime");
             }
         }
+        public int RoomNumber
+        {
+            get
+            {
+                return _lesson.RoomNumber;
+            }
+            set
+            {
+                _lesson.RoomNumber = value;
+                OnPropertyChanged("ChangedRoomNumber");
+            }
+        }
+        public string Teacher
+        {
+            get
+            {
+                return _lesson.Teacher.FirstName + " " + _lesson.Teacher.SecondName + " " + _lesson.Teacher.Surname;
+            }
+        }
         public DateTime Date { get => _lesson.Day.Date; }
         #endregion
 
