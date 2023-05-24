@@ -10,6 +10,8 @@ namespace CourseWork2.Model
         public bool Progress { get; set; }
         public DateTime FirstTime { get; set; }
         public DateTime LastTime { get; set; }
+        public Teacher Teacher { get; set; }
+        public int RoomNumber { get; set; }
 
         public int DayId { get; set; }
         public virtual Day Day { get; set; }
