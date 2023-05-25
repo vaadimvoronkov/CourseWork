@@ -58,11 +58,11 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.FirstTime;
+                return _lesson.Interval.FirstTime;
             }
             set 
             {
-                _lesson.FirstTime = value;
+                _lesson.Interval.FirstTime = value;
                 OnPropertyChanged("ChangedFirstTime");
             }
         }
@@ -70,11 +70,11 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.LastTime;
+                return _lesson.Interval.LastTime;
             }
             set
             {
-                _lesson.LastTime = value;
+                _lesson.Interval.LastTime = value;
                 OnPropertyChanged("ChangedLastTime");
             }
         }
