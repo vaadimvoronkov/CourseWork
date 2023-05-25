@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.ViewModel
 {
-    public class LessonsTabVM: INotifyPropertyChanged // Добавить конструктор, который принимает дату, после чего можно создать метод LoadDate, который берет данные из репозитория
+    public class LessonsTabVM: INotifyPropertyChanged 
     {
         private ObservableCollection<LessonVM> _lessons = new();
         private Repository repository;
@@ -23,11 +23,11 @@ namespace CourseWork2.ViewModel
             this.repository = repository;
             LoadDate(dateTime);
         }
-        private void LoadDate(DateTime dateTime)
+        private void LoadDate(DateTime dateTime) // создать кнопку для обновления данных с репозитория
         {
-            if(repository.lessonVMs != null)
+            if(repository.lessons != null)
             {
-                var loadedlessons = repository.lessonVMs.Where(lessonVM => lessonVM.Date == dateTime);
+                var loadedlessons = repository.lessons.Where(lesson => lesson.Day.Date == dateTime).Select(x=>new LessonVM(x));
                 _lessons = new ObservableCollection<LessonVM>(loadedlessons);
             }
         }
