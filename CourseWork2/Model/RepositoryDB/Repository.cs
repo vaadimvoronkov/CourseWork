@@ -10,7 +10,6 @@ namespace CourseWork2.Model.Repository
 {
     public class Repository
     {
-        public ObservableCollection<LessonVM> lessonVMs = new();
         public List<Lesson> lessons = new();
         public List<Day> days = new();
     }
