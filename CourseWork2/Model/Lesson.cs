@@ -4,24 +4,31 @@ namespace CourseWork2.Model
 {
     public class Lesson
     {
-        public int Id { get; set; }
+        public int LessonId { get; set; }
         public string Name { get; set; }
         public string Task { get; set; }
         public bool Progress { get; set; }
-        public Interval Interval { get; set; }
-        public Teacher Teacher { get; set; }
-        public Room Room { get; set; }
 
+        public int IntervalId { get; set; }
+        public virtual Interval Interval { get; set; }
+        public int TeacherId { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        public int RoomId { get; set; }
+        public virtual Room Room { get; set; }
         public int DayId { get; set; }
         public virtual Day Day { get; set; }
 
-        public Lesson(string name, string task, bool progress, Interval interval, Day day) 
-        { 
-            Name= name;
-            Task= task;
-            Progress= progress;
-            Interval= interval;
+        public Lesson(string name, string task, bool progress, Interval interval, Day day)
+        {
+            Name = name;
+            Task = task;
+            Progress = progress;
+            Interval = interval;
             Day = day;
+        }
+        public Lesson()
+        {
+
         }
 
     }

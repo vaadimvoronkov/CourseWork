@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.ViewModel
 {
-    public class LessonsTabVM: INotifyPropertyChanged 
+    public class LessonsTabVM
     {
         private ObservableCollection<LessonVM> _lessons = new();
         private Repository repository;
