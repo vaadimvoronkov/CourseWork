@@ -10,7 +10,27 @@ namespace CourseWork2.Model.Repository
 {
     public class Repository
     {
-        public List<Lesson> lessons = new();
-        public List<Day> days = new();
+        private static Repository repository;
+        private Repository() 
+        {
+
+        }
+        public static Repository GetInstance()
+        {
+            if (repository == null)
+                repository = new Repository();
+            return repository;
+        }
+
+        public List<Lesson> lessons { get; }
+        public List<Day> days { get; }
+        public List<Room> rooms { get; }
+        public List<Interval> intervals  { get; }
+        public List<Teacher> teachers { get; }
+
+        public void AddLesson(Lesson lesson)
+        {
+            lessons.Add(lesson);
+        }
     }
 }

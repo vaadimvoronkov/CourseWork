@@ -9,6 +9,7 @@ namespace CourseWork2.Model
 {
     public class Teacher
     {
+        public int TeacherId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string Surname { get; set; }

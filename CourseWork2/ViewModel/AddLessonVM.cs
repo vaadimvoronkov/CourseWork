@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace CourseWork2.ViewModel
 {
-    public class AddLessonVM : INotifyPropertyChanged // Создать RelayCommand, в котором будет отправляться в репозиторий заполненный  AddLessonView. После чего проверить и сохранить данные в репозиторий
+    public class AddLessonVM : INotifyPropertyChanged
     {
         private Lesson _lesson;
         private Repository repository;
@@ -24,8 +24,7 @@ namespace CourseWork2.ViewModel
                 return  new RelayCommand(obj =>
                 {
 
-                    _lesson = new(LessonName,LessonTask,false,new Interval(FirstTime,LastTime),LessonDay);
-
+                    _lesson = new(LessonName, LessonTask, false, new Interval(FirstTime, LastTime), LessonDay);
 
                 });
                   
@@ -38,7 +37,7 @@ namespace CourseWork2.ViewModel
                 return new RelayCommand(obj =>
                 {
 
-                    repository.lessons.Add(_lesson);
+                    repository.AddLesson(_lesson);
 
                 });
 

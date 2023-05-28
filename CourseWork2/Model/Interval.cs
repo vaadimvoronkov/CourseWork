@@ -8,12 +8,18 @@ namespace CourseWork2.Model
 {
     public class Interval
     {
+        public int IntervalId { get; set; }
         public DateTime FirstTime { get; set; }
         public DateTime LastTime { get; set; }
-        public Interval(DateTime firstTime, DateTime secondTime) 
+
+        public Interval(DateTime firstTime, DateTime secondTime)
         {
-            FirstTime= firstTime;
-            LastTime= secondTime;
+            FirstTime = firstTime;
+            LastTime = secondTime;
+        }
+        public Interval()
+        {
+
         }
     }
 }
