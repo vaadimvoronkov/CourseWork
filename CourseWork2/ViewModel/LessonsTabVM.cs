@@ -31,6 +31,7 @@ namespace CourseWork2.ViewModel
                 _lessons = new ObservableCollection<LessonVM>(loadedlessons);
             }
         }
+        
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

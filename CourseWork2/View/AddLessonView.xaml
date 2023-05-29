@@ -10,7 +10,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Label Content ="Select Date" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <DatePicker HorizontalAlignment="Center" Width="300" Height="24" Margin="0,0,0,5" Text="{Binding LessonDate}"/>
+            <DatePicker HorizontalAlignment="Center" Width="300" Height="24" Margin="0,0,0,5" Text="{Binding DayDate}"/>
 
             <Label Content ="Enter Lesson Name" HorizontalAlignment="Center"/>
             <TextBox x:Name="LessonNameTextbox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding LessonName}"/>
@@ -19,16 +19,16 @@
             <TextBox x:Name="TaskTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding LessonTask}"/>
             
             <Label Content ="Room Number" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="RoomNumber" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding LessonRoomNumber}"/>
+            <TextBox x:Name="RoomNumber" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding RoomNumber}"/>
 
             <Label Content ="Teacher First Name" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="TeacherFirstName" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding LessonTeacherFirstName}"/>
+            <TextBox x:Name="TeacherFirstName" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding TeacherFirstName}"/>
 
             <Label Content ="Teacher Second Name" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="TeacherSecondName" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding LessonTeacherSecondName}"/>
+            <TextBox x:Name="TeacherSecondName" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding TeacherSecondName}"/>
 
             <Label Content ="Teacher Surame" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="TeacherSurame" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding LessonTeacherSurname}"/>
+            <TextBox x:Name="TeacherSurame" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" Height="20" Margin="0,0,0,5" Text="{Binding TeacherSurname}"/>
 
 
 
@@ -59,7 +59,6 @@
             </StackPanel>
 
             <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Add Lesson" Margin="0,0,0,5" Command="{Binding AddLesson}" BorderThickness="0,0,0,0" Background="#FF4D4B4B" Foreground="White"/>
-            <Button HorizontalAlignment="Center" Height="20" Width="300" Content="Save" BorderThickness="0,0,0,0" Background="#FF4D4B4B" Foreground="White" Command="{Binding SaveLesson}"/>
 
         </StackPanel>
     </Grid>
