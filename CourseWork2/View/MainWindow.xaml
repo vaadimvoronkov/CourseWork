@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWork2.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="805" FontFamily="Microsoft YaHei Light">
+        Title="MainWindow" Height="800" Width="805" FontFamily="Microsoft YaHei Light" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -24,12 +24,49 @@
                     <ListView.View>
                         
                         <GridView>
-                            <GridViewColumn Header ="Lesson Name"/>
-                            <GridViewColumn Header ="Task"/>
-                            <GridViewColumn Header ="First Time"/>
-                            <GridViewColumn Header ="Last Time"/>
-                            <GridViewColumn Header ="Teacher Name"/>
-                            <GridViewColumn Header ="Room Number"/>
+                            <GridViewColumn Header ="Lesson Name">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Name}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header ="Task">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Task}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header ="First Time">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding FirstTime}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header ="Last Time">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding LastTime}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header ="Teacher Name">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Teacher}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header ="Room Number">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Room}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn  Header ="Progress">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
