@@ -1,4 +1,5 @@
-﻿using CourseWork2.Model;
+﻿using CourseWork2.Commands;
+using CourseWork2.Model;
 using CourseWork2.Model.Repository;
 using CourseWork2.View;
 using System;
@@ -68,7 +69,6 @@ namespace CourseWork2.ViewModel
            LessonsTabVM lessonsTabVM = new LessonsTabVM(repository,SelectedDate);
            LessonsTab = lessonsTabVM;
         }
-
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

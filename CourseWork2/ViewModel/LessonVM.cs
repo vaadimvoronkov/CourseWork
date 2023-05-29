@@ -88,7 +88,6 @@ namespace CourseWork2.ViewModel
                 return _lesson.Teacher.FirstName + " " + _lesson.Teacher.SecondName + " " + _lesson.Teacher.Surname;
             }
         }
-        //public DateTime Date { get => _lesson.Day.Date; }
         #endregion
 
         #region Реализация INotifyPropertyChanged
