@@ -57,6 +57,6 @@
 
         <DatePicker Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,5" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="gyu" SelectedDate="{Binding SelectedDate}"/>
         <Label Content="Diary" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="16"/>
-        <Button Content="Update" Grid.Row="3" Margin="5,0,5,0" Width="50" Height="30"/>
+        <!--<Button Content="Update" Grid.Row="3" Margin="5,0,5,0" Width="50" Height="30" Command="{Binding UpdateLessonsList}"/>-->
     </Grid>
 </Window>

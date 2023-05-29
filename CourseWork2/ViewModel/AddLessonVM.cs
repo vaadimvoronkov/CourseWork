@@ -36,7 +36,7 @@ namespace CourseWork2.ViewModel
                 return new RelayCommand(obj =>
                 {
 
-                    _lesson = new(LessonName, LessonTask, false, new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute), new Day(DayDate),new Teacher(TeacherFirstName,TeacherSecondName,TeacherSurname), new Room(RoomNumber));
+                    _lesson = new(_lessonName, _lessonTask, false, new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute), new Day(DayDate),new Teacher(TeacherFirstName,TeacherSecondName,TeacherSurname), new Room(RoomNumber));
                      repository.AddLesson(_lesson);
 
                 });

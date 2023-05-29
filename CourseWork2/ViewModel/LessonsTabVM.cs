@@ -1,4 +1,5 @@
-﻿using CourseWork2.Model;
+﻿using CourseWork2.Commands;
+using CourseWork2.Model;
 using CourseWork2.Model.Repository;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,9 @@ namespace CourseWork2.ViewModel
             this.repository = repository;
             LoadDate(dateTime);
         }
-        private void LoadDate(DateTime dateTime) // создать кнопку для обновления данных с репозитория
+
+        #region Реализация методов
+        private void LoadDate(DateTime dateTime) 
         {
             if(repository.lessons != null)
             {
@@ -31,7 +34,7 @@ namespace CourseWork2.ViewModel
                 _lessons = new ObservableCollection<LessonVM>(loadedlessons);
             }
         }
-        
+        #endregion
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
