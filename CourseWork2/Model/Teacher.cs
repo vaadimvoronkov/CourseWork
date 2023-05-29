@@ -13,6 +13,12 @@ namespace CourseWork2.Model
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string Surname { get; set; }
+        public Teacher(string firstName,string secondName, string surname)
+        {
+            FirstName = firstName;
+            SecondName = secondName;
+            Surname = surname;
+        }
 
 
     }

@@ -19,6 +19,7 @@ namespace CourseWork2.ViewModel
         public MainVM(Repository repository)
         {
             this.repository = repository;
+            addLessonVM = new AddLessonVM(repository);
             SelectedDate = DateTime.Now;
         }
 

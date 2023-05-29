@@ -22,11 +22,11 @@ namespace CourseWork2.Model.Repository
             return repository;
         }
 
-        public List<Lesson> lessons { get; }
-        public List<Day> days { get; }
-        public List<Room> rooms { get; }
-        public List<Interval> intervals  { get; }
-        public List<Teacher> teachers { get; }
+        public List<Lesson> lessons = new List<Lesson>();
+        public List<Day> days = new List<Day>();
+        public List<Room> rooms = new List<Room>();
+        public List<Interval> intervals = new List<Interval>();
+        public List<Teacher> teachers = new List<Teacher>();
 
         public void AddLesson(Lesson lesson)
         {

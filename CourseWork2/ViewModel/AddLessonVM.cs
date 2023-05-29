@@ -7,211 +7,179 @@ using System.Runtime.CompilerServices;
 
 namespace CourseWork2.ViewModel
 {
-    public class AddLessonVM : INotifyPropertyChanged
+    public class AddLessonVM : INotifyPropertyChanged 
     {
         private Lesson _lesson;
         private Repository repository;
+        private string _lessonName;
+        private DateTime _dayDate = DateTime.Today;
+        private string _lessonTask;
+        private int _firstTimeHour;
+        private int _firstTimeMinute;
+        private int _lastTimeHour;
+        private int _lastTimeMinute;
+        private int _roomNumber;
+        private string _teacherFirstName;
+        private string _teacherSecondName;
+        private string _teacherSurname;
+
         public AddLessonVM(Repository repository)
         {
             this.repository = repository;
         }
-       
-        #region Реализация свойств
-        public RelayCommand AddLesson 
-        {
-            get
-            {
-                return  new RelayCommand(obj =>
-                {
 
-                    _lesson = new(LessonName, LessonTask, false, new Interval(FirstTime, LastTime), LessonDay);
-
-                });
-                  
-            }
-        }
-        public RelayCommand SaveLesson
+        #region Реализация привязки комманд
+        public RelayCommand AddLesson  // Привязка команды на кнопку AddLesson
         {
             get
             {
                 return new RelayCommand(obj =>
                 {
 
-                    repository.AddLesson(_lesson);
+                    _lesson = new(LessonName, LessonTask, false, new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute), new Day(DayDate),new Teacher(TeacherFirstName,TeacherSecondName,TeacherSurname), new Room(RoomNumber));
+                     repository.AddLesson(_lesson);
 
                 });
 
             }
         }
-        public string LessonName
-        {
-            get 
-            { 
-                return _lesson.Name;
-            }
-            set 
-            { 
-                _lesson.Name = value;
-                OnPropertyChanged("LessonName");
-            }
-        }
+        #endregion
 
-        public Day LessonDay
+        #region Реализация свойств
+        public string LessonName
         {
             get
             {
-                return _lesson.Day;
+                return _lessonName;
             }
             set
             {
-                _lesson.Day = value;
-                OnPropertyChanged("LessonDay");
+                _lessonName = value;
+                OnPropertyChanged("LessonName");
             }
         }
-
+        public DateTime DayDate
+        {
+            get
+            {
+                return _dayDate;
+            }
+            set
+            {
+                _dayDate = value;
+                OnPropertyChanged("DayDate");
+            }
+        }
         public string LessonTask
         {
             get
             {
-                return _lesson.Task;
+                return _lessonTask;
             }
             set
             {
-                _lesson.Task = value;
+                _lessonTask = value;
                 OnPropertyChanged("LessonTask");
             }
         }
-
         public int FirstTimeHour
         {
             get
             {
-                return FirstTimeHour;
+                return _firstTimeHour;
             }
-            set 
+            set
             {
-                FirstTimeHour = value; 
-                OnPropertyChanged("LessonFirstTimeHour");
+                _firstTimeHour = value;
+                OnPropertyChanged("FirstTimeHour");
             }
         }
-
         public int FirstTimeMinute
         {
             get
             {
-                return FirstTimeMinute;
+                return _firstTimeMinute;
             }
             set
             {
-                FirstTimeMinute = value; 
-                OnPropertyChanged("LessonFirstTimeMinute");
+                _firstTimeMinute = value;
+                OnPropertyChanged("FirstTimeMinute");
             }
         }
         public int LastTimeHour
         {
             get
             {
-                return LastTimeHour;
+                return _lastTimeHour;
             }
             set
             {
-               LastTimeHour = value;
-               OnPropertyChanged("LessonLastTimeHour");
+                _lastTimeHour = value;
+                OnPropertyChanged("LastTimeHour");
             }
         }
-
         public int LastTimeMinute
         {
             get
             {
-                return LastTimeMinute;
+                return _lastTimeMinute;
             }
             set
             {
-               LastTimeMinute = value;
-               OnPropertyChanged("LessonLastTimeMinute");
+                _lastTimeMinute = value;
+                OnPropertyChanged("LastTimeMinute");
             }
         }
 
-        public DateTime FirstTime
-        {
-            get
-            {
-                return _lesson.Interval.FirstTime;
-            }
-            set
-            {
-                _lesson.Interval.FirstTime = FormTime(FirstTimeHour,FirstTimeMinute);
-                OnPropertyChanged("LessonFirstTime");
-            }
-        }
-
-        public DateTime LastTime
-        {
-            get
-            {
-                return _lesson.Interval.LastTime;
-            }
-            set
-            {
-                _lesson.Interval.LastTime = FormTime(LastTimeHour, LastTimeMinute);
-                OnPropertyChanged("LessonLastTime");
-            }
-        }
         public int RoomNumber
         {
             get
             {
-                return _lesson.Room.Number;
+                return _roomNumber;
             }
             set
             {
-                _lesson.Room.Number = value;
-                OnPropertyChanged("LessonRoomNumber");
+                _roomNumber = value;
+                OnPropertyChanged("RoomNumber");
             }
         }
         public string TeacherFirstName
         {
             get
             {
-                return _lesson.Teacher.FirstName;
+                return _teacherFirstName;
             }
             set
             {
-                _lesson.Teacher.FirstName = value;
-                OnPropertyChanged("LessonTeacherFirstName");
+                _teacherFirstName = value;
+                OnPropertyChanged("TeacherFirstName");
             }
         }
         public string TeacherSecondName
         {
             get
             {
-                return _lesson.Teacher.SecondName;
+                return _teacherSecondName;
             }
             set
             {
-                _lesson.Teacher.SecondName = value;
-                OnPropertyChanged("LessonTeacherSecondName");
+               _teacherSecondName = value;
+                OnPropertyChanged("TeacherSecondName");
             }
         }
         public string TeacherSurname
         {
             get
             {
-                return _lesson.Teacher.Surname;
+                return _teacherSurname;
             }
             set
             {
-                _lesson.Teacher.Surname = value;
-                OnPropertyChanged("LessonTeacherSurname");
+                _teacherSurname= value;
+                OnPropertyChanged("TeacherSurname");
             }
         }
         #endregion
-
-        private DateTime FormTime(int hours,int minutes)
-        {
-            return new DateTime(LessonDay.Date.Year, LessonDay.Date.Month, LessonDay.Date.Day, hours, minutes, 0);
-        }
 
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;

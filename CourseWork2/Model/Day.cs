@@ -19,5 +19,10 @@ namespace CourseWork2.Model
         {
             Lessons.Remove(lesson);
         }
+
+        public Day (DateTime date)
+        {
+            Date = date;
+        }
     }
 }

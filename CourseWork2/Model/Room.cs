@@ -11,5 +11,9 @@ namespace CourseWork2.Model
         public int RoomId { get; set; }
         public int Number { get; set; }
         List<Lesson> Lessons { get; set; }
+        public Room(int number)
+        {
+            Number = number;
+        }
     }
 }

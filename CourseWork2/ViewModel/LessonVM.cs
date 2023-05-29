@@ -54,28 +54,19 @@ namespace CourseWork2.ViewModel
                 OnPropertyChanged("ChangedProgress");
             }
         }
-        public DateTime FirstTime
+        public string FirstTime
         {
             get
             {
-                return _lesson.Interval.FirstTime;
+                return _lesson.Interval.FirstTimeHour+_lesson.Interval.FirstTimeMinute.ToString();
             }
-            set 
-            {
-                _lesson.Interval.FirstTime = value;
-                OnPropertyChanged("ChangedFirstTime");
-            }
+
         }
-        public DateTime LastTime
+        public string LastTime
         {
             get
             {
-                return _lesson.Interval.LastTime;
-            }
-            set
-            {
-                _lesson.Interval.LastTime = value;
-                OnPropertyChanged("ChangedLastTime");
+                return _lesson.Interval.LastTimeHour+_lesson.Interval.LastTimeMinute.ToString();
             }
         }
         public int Room
@@ -97,7 +88,7 @@ namespace CourseWork2.ViewModel
                 return _lesson.Teacher.FirstName + " " + _lesson.Teacher.SecondName + " " + _lesson.Teacher.Surname;
             }
         }
-        public DateTime Date { get => _lesson.Day.Date; }
+        //public DateTime Date { get => _lesson.Day.Date; }
         #endregion
 
         #region Реализация INotifyPropertyChanged

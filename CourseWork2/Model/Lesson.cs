@@ -18,13 +18,15 @@ namespace CourseWork2.Model
         public int DayId { get; set; }
         public virtual Day Day { get; set; }
 
-        public Lesson(string name, string task, bool progress, Interval interval, Day day)
+        public Lesson(string name, string task, bool progress, Interval interval, Day day, Teacher teacher, Room room)
         {
             Name = name;
             Task = task;
             Progress = progress;
             Interval = interval;
             Day = day;
+            Teacher = teacher;
+            Room = room;
         }
         public Lesson()
         {
