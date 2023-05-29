@@ -28,10 +28,5 @@ namespace CourseWork2.Model
             Teacher = teacher;
             Room = room;
         }
-        public Lesson()
-        {
-
-        }
-
     }
 }

@@ -9,7 +9,11 @@ namespace CourseWork2.Model
     {
         public int DayId { get; set; }
         public DateTime Date { get; set; }
-        public List<Lesson> Lessons { get; set; } //????
+        public List<Lesson> Lessons { get; set; }
+        public Day(DateTime date)
+        {
+            Date = date;
+        }
 
         public void AddLesson(Lesson lesson)
         {
@@ -18,11 +22,6 @@ namespace CourseWork2.Model
         public void RemoveLesson(Lesson lesson)
         {
             Lessons.Remove(lesson);
-        }
-
-        public Day (DateTime date)
-        {
-            Date = date;
         }
     }
 }

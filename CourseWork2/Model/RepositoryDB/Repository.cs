@@ -27,6 +27,7 @@ namespace CourseWork2.Model.Repository
         public List<Room> rooms = new List<Room>();
         public List<Interval> intervals = new List<Interval>();
         public List<Teacher> teachers = new List<Teacher>();
+        public List<Diary> diaries = new List<Diary>();
 
         public void AddLesson(Lesson lesson)
         {
