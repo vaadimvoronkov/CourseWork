@@ -15,6 +15,7 @@ namespace CourseWork2.ViewModel
         private DateTime _selectedDate;
         private LessonsTabVM _lessonsTabVM;
         private Repository repository;
+        private AddLessonVM addLessonVM;
         public MainVM(Repository repository)
         {
             this.repository = repository;
@@ -45,6 +46,18 @@ namespace CourseWork2.ViewModel
             {
                 _lessonsTabVM = value;
                 OnPropertyChanged("LessonsTab");
+            }
+        }
+        public AddLessonVM AddLessonVM
+        {
+            get
+            {
+                return addLessonVM;
+            }
+            set
+            {
+                addLessonVM = value;
+                OnPropertyChanged("AddLessonVM");
             }
         }
         #endregion

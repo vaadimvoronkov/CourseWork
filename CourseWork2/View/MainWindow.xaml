@@ -44,7 +44,7 @@
                 </ListView>
             </TabItem>
             
-            <TabItem Name="AddLesson" Margin="0,0,0,0" DataContext="{Binding LessonsTab}">
+            <TabItem Name="AddLesson" Margin="0,0,0,0">
                 
                 <TabItem.Header>
                     <TextBlock Text ="Add Lesson"/>
