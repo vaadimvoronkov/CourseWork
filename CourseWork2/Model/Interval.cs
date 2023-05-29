@@ -21,9 +21,5 @@ namespace CourseWork2.Model
             LastTimeHour = secondTimeHour;
             LastTimeMinute = secondTimeMinute;
         }
-        public Interval()
-        {
-
-        }
     }
 }
