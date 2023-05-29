@@ -58,7 +58,7 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.Interval.FirstTimeHour+_lesson.Interval.FirstTimeMinute.ToString();
+                return _lesson.Interval.FirstTimeHour+":"+_lesson.Interval.FirstTimeMinute.ToString();
             }
 
         }
@@ -66,7 +66,7 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.Interval.LastTimeHour+_lesson.Interval.LastTimeMinute.ToString();
+                return _lesson.Interval.LastTimeHour+ ":" + _lesson.Interval.LastTimeMinute.ToString();
             }
         }
         public int Room
