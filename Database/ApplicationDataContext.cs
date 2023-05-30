@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Database
 {
-    internal class ApplicationDataContext: DbContext
+    public class ApplicationDataContext: DbContext
     {
         public DbSet<Day> Days { get; set; }
         public DbSet<Lesson> Lessons { get; set; }

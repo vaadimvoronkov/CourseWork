@@ -15,9 +15,9 @@ namespace CourseWork2.Model
         public string Surname { get; private set; }
         public Teacher(string firstName,string secondName, string surname)
         {
-            FirstName = firstName;
-            SecondName = secondName;
-            Surname = surname;
+            FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+            SecondName = secondName ?? throw new ArgumentNullException(nameof(secondName));
+            Surname = surname ?? throw new ArgumentNullException(nameof(surname));
         }
 
 
