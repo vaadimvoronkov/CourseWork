@@ -67,6 +67,5 @@ namespace Database
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocaldb;Database = CourseWorkDB;Trusted_Connection=True");
         }
 
-
     }
 }
