@@ -1,6 +1,5 @@
 ﻿using CourseWork2.Commands;
 using CourseWork2.Model;
-using CourseWork2.Model.Repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

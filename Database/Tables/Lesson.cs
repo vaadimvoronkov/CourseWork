@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Database
+namespace Database.Tables
 {
     public class Lesson
     {

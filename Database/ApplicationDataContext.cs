@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Database.Tables;
 using Microsoft.EntityFrameworkCore;
 
 namespace Database
 {
-    internal class ApplicationDataContext: DbContext
+    public class ApplicationDataContext: DbContext
     {
         public DbSet<Day> Days { get; set; }
         public DbSet<Lesson> Lessons { get; set; }

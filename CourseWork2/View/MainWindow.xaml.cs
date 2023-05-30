@@ -1,7 +1,7 @@
 ﻿using CourseWork2.ViewModel;
 using System.Windows;
 using System.Data;
-using CourseWork2.Model.Repository;
+using CourseWork2.Model;
 
 namespace CourseWork2.View
 {

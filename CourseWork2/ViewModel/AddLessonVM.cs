@@ -1,9 +1,9 @@
 ﻿using CourseWork2.Commands;
 using CourseWork2.Model;
-using CourseWork2.Model.Repository;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace CourseWork2.ViewModel
 {
@@ -29,15 +29,21 @@ namespace CourseWork2.ViewModel
         }
 
         #region Реализация привязки комманд
-        public RelayCommand AddLesson  // Привязка команды на кнопку AddLesson
+        public RelayCommand AddLesson  
         {
             get
             {
                 return new RelayCommand(obj =>
                 {
-
-                    _lesson = new(_lessonName, _lessonTask, false, new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute), new Day(DayDate),new Teacher(TeacherFirstName,TeacherSecondName,TeacherSurname), new Room(RoomNumber));
-                     repository.AddLesson(_lesson);
+                    try
+                    {
+                        _lesson = new(_lessonName, _lessonTask, false, new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute), new Day(DayDate), new Teacher(TeacherFirstName, TeacherSecondName, TeacherSurname), new Room(RoomNumber));
+                        repository.AddLesson(_lesson);
+                    }
+                    catch (ArgumentNullException ex) 
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
 
                 });
 
@@ -180,6 +186,7 @@ namespace CourseWork2.ViewModel
             }
         }
         #endregion
+
 
         #region Реализация INotifyProperyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
