@@ -5,7 +5,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database
+namespace Database.Tables
 {
     public class Teacher
     {
@@ -14,7 +14,7 @@ namespace Database
         public string SecondName { get; set; }
         public string Surname { get; set; }
         public virtual List<Lesson> Lessons { get; set; }
-        public Teacher(string firstName,string secondName, string surname)
+        public Teacher(string firstName, string secondName, string surname)
         {
             FirstName = firstName;
             SecondName = secondName;

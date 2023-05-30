@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseWork2.Model.Repository
+namespace CourseWork2.Model
 {
     public class Repository
     {
         private static Repository repository;
-        private Repository() 
+        private Repository()
         {
 
         }

@@ -1,4 +1,4 @@
-﻿using Database;
+﻿using Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +9,20 @@ namespace Database
 {
     public static class DbWorker
     {
-            public static string CreateLesson(Lesson lesson)
+            public static string CreateLesson(Lesson lesson) //исправить на && и доабвить методы првоерок
         {
             string result = "Урок с таким наобором данных уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
             {
-                bool isExist = db.Lessons.Any(x => x.Name == lesson.Name & x.Interval == lesson.Interval & lesson.Teacher == lesson.Teacher & x.Day == lesson.Day && x.Task == lesson.Task & x.Room == lesson.Room & x.Progress == lesson.Progress);
+                bool isExist = db.Lessons.
+                    Any(x => x.Name == lesson.Name 
+                    && x.Interval == lesson.Interval 
+                    && lesson.Teacher == lesson.Teacher 
+                    && x.Day == lesson.Day 
+                    && x.Task == lesson.Task 
+                    && x.Room == lesson.Room 
+                    && x.Progress == lesson.Progress);
+
                 if (isExist != true)
                 {
                     db.Lessons.Add(lesson);

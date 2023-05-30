@@ -14,14 +14,5 @@ namespace CourseWork2.Model
         {
             Date = date;
         }
-
-        public void AddLesson(Lesson lesson)
-        {
-            Lessons.Add(lesson);
-        }
-        public void RemoveLesson(Lesson lesson)
-        {
-            Lessons.Remove(lesson);
-        }
     }
 }

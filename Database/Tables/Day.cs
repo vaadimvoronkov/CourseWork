@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Database
+namespace Database.Tables
 {
     public class Day
     {
@@ -12,15 +12,6 @@ namespace Database
         public Day(DateTime date)
         {
             Date = date;
-        }
-
-        public void AddLesson(Lesson lesson)
-        {
-            Lessons.Add(lesson);
-        }
-        public void RemoveLesson(Lesson lesson)
-        {
-            Lessons.Remove(lesson);
         }
     }
 }

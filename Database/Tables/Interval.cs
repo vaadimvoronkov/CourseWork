@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database
+namespace Database.Tables
 {
     public class Interval
     {
@@ -14,7 +14,7 @@ namespace Database
         public int LastTimeHour { get; set; }
         public int LastTimeMinute { get; set; }
 
-        public Interval(int firstTimeHour,int firstTimeMinute,int secondTimeHour,int secondTimeMinute)
+        public Interval(int firstTimeHour, int firstTimeMinute, int secondTimeHour, int secondTimeMinute)
         {
             FirstTimeHour = firstTimeHour;
             FirstTimeMinute = firstTimeMinute;

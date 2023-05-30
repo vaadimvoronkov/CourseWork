@@ -1,6 +1,5 @@
 ﻿using CourseWork2.Commands;
 using CourseWork2.Model;
-using CourseWork2.Model.Repository;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -29,7 +28,7 @@ namespace CourseWork2.ViewModel
         }
 
         #region Реализация привязки комманд
-        public RelayCommand AddLesson  // Привязка команды на кнопку AddLesson
+        public RelayCommand AddLesson  
         {
             get
             {
