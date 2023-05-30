@@ -5,14 +5,15 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseWork2.Model
+namespace Database
 {
     public class Teacher
     {
-        public int TeacherId { get; private set; }
-        public string FirstName { get; private set; }
-        public string SecondName { get; private set; }
-        public string Surname { get; private set; }
+        public int TeacherId { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string Surname { get; set; }
+        public virtual List<Lesson> Lessons { get; set; }
         public Teacher(string firstName,string secondName, string surname)
         {
             FirstName = firstName;

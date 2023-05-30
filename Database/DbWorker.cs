@@ -1,11 +1,11 @@
-﻿using CourseWork2.Model.Repository;
+﻿using Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseWork2.Model.RepositoryDB
+namespace Database
 {
     public static class DbWorker
     {
