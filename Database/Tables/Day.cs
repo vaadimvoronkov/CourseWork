@@ -9,9 +9,5 @@ namespace Database.Tables
         public int DayId { get; set; }
         public DateTime Date { get; set; }
         public virtual List<Lesson> Lessons { get; set; }
-        public Day(DateTime date)
-        {
-            Date = date;
-        }
     }
 }

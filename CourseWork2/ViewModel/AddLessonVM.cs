@@ -111,12 +111,8 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                if(value >= 0 && value <60)
-                {
-                    _firstTimeMinute = value;
-                    OnPropertyChanged("FirstTimeMinute");
-                }
-                
+                _firstTimeMinute = value;
+                OnPropertyChanged("FirstTimeMinute");
             }
         }
         public int LastTimeHour
@@ -158,11 +154,8 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                if(value > 0 && value < 500)
-                {
-                    _roomNumber = value;
-                    OnPropertyChanged("RoomNumber");
-                }
+                _roomNumber = value;
+                OnPropertyChanged("RoomNumber");
             }
         }
         public string TeacherFirstName
