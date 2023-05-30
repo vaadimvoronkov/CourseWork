@@ -27,7 +27,6 @@ namespace CourseWork2.Model.Repository
         public List<Room> rooms = new List<Room>();
         public List<Interval> intervals = new List<Interval>();
         public List<Teacher> teachers = new List<Teacher>();
-        public List<Diary> diaries = new List<Diary>();
 
         #region Методы добавления данных
         public void AddLesson(Lesson lesson)
@@ -50,10 +49,7 @@ namespace CourseWork2.Model.Repository
         {
             teachers.Add(teacher);
         }
-        public void AddDiary(Diary diary)
-        {
-            diaries.Add(diary);
-        }
+
         #endregion
 
         #region Методы удаления данных
@@ -77,10 +73,7 @@ namespace CourseWork2.Model.Repository
         {
             teachers.Remove(teacher);
         }
-        public void RemoveDiary(Diary diary)
-        {
-            diaries.Remove(diary);
-        }
+
         #endregion
     }
 }

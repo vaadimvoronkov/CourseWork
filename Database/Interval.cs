@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseWork2.Model
+namespace Database
 {
     public class Interval
     {
-        public int IntervalId { get; private set; }
-        public int FirstTimeHour { get; private set; }
-        public int FirstTimeMinute { get; private set; }
-        public int LastTimeHour { get; private set; }
-        public int LastTimeMinute { get; private set; }
+        public int IntervalId { get; set; }
+        public int FirstTimeHour { get; set; }
+        public int FirstTimeMinute { get; set; }
+        public int LastTimeHour { get; set; }
+        public int LastTimeMinute { get; set; }
 
         public Interval(int firstTimeHour,int firstTimeMinute,int secondTimeHour,int secondTimeMinute)
         {
