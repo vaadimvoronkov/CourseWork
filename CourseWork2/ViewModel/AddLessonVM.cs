@@ -111,8 +111,12 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                _firstTimeMinute = value;
-                OnPropertyChanged("FirstTimeMinute");
+                if (value >= 0 && value < 60)
+                {
+                    _firstTimeMinute = value;
+                    OnPropertyChanged("FirstTimeMinute");
+                }
+
             }
         }
         public int LastTimeHour
