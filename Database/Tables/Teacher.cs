@@ -14,13 +14,6 @@ namespace Database.Tables
         public string SecondName { get; set; }
         public string Surname { get; set; }
         public virtual List<Lesson> Lessons { get; set; }
-        public Teacher(string firstName, string secondName, string surname)
-        {
-            FirstName = firstName;
-            SecondName = secondName;
-            Surname = surname;
-        }
-
 
     }
 }

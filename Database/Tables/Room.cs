@@ -11,9 +11,5 @@ namespace Database.Tables
         public int RoomId { get; set; }
         public int Number { get; set; }
         public virtual List<Lesson> Lessons { get; set; }
-        public Room(int number)
-        {
-            Number = number;
-        }
     }
 }

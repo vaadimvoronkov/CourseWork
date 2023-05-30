@@ -14,12 +14,5 @@ namespace Database.Tables
         public int LastTimeHour { get; set; }
         public int LastTimeMinute { get; set; }
 
-        public Interval(int firstTimeHour, int firstTimeMinute, int secondTimeHour, int secondTimeMinute)
-        {
-            FirstTimeHour = firstTimeHour;
-            FirstTimeMinute = firstTimeMinute;
-            LastTimeHour = secondTimeHour;
-            LastTimeMinute = secondTimeMinute;
-        }
     }
 }

@@ -96,8 +96,11 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                _firstTimeHour = value;
-                OnPropertyChanged("FirstTimeHour");
+                if (value >= 0 && value < 24)
+                {
+                    _firstTimeHour = value;
+                    OnPropertyChanged("FirstTimeHour");
+                }
             }
         }
         public int FirstTimeMinute
@@ -108,8 +111,12 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                _firstTimeMinute = value;
-                OnPropertyChanged("FirstTimeMinute");
+                if (value >= 0 && value < 60)
+                {
+                    _firstTimeMinute = value;
+                    OnPropertyChanged("FirstTimeMinute");
+                }
+
             }
         }
         public int LastTimeHour
@@ -120,8 +127,11 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                _lastTimeHour = value;
-                OnPropertyChanged("LastTimeHour");
+                if (value >= 0 && value < 24)
+                {
+                    _lastTimeHour = value;
+                    OnPropertyChanged("LastTimeHour");
+                }
             }
         }
         public int LastTimeMinute
@@ -132,8 +142,11 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                _lastTimeMinute = value;
-                OnPropertyChanged("LastTimeMinute");
+                if (value >= 0 && value < 60)
+                {
+                    _lastTimeMinute = value;
+                    OnPropertyChanged("LastTimeMinute");
+                }
             }
         }
 
@@ -145,8 +158,11 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                _roomNumber = value;
-                OnPropertyChanged("RoomNumber");
+                if (value > 0 && value < 500)
+                {
+                    _roomNumber = value;
+                    OnPropertyChanged("RoomNumber");
+                }
             }
         }
         public string TeacherFirstName

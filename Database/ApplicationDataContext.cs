@@ -64,7 +64,7 @@ namespace Database
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server={localdb}\\mssqllocaldb;Database = CourseWorkDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocaldb;Database = CourseWorkDB;Trusted_Connection=True");
         }
 
 
