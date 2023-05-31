@@ -1,5 +1,7 @@
 ﻿using CourseWork2.Commands;
+using CourseWork2.Exceptions;
 using CourseWork2.Model;
+using Microsoft.Windows.Themes;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -37,16 +39,115 @@ namespace CourseWork2.ViewModel
                 {
                     try
                     {
-                        _lesson = new(_lessonName, _lessonTask, false, new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute), new Day(DayDate), new Teacher(TeacherFirstName, TeacherSecondName, TeacherSurname), new Room(RoomNumber));
+                        _lesson = new(
+                            LessonName, 
+                            LessonTask, 
+                            false, 
+                            new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute),
+                            new Day(DayDate),
+                            new Teacher(TeacherFirstName, TeacherSecondName, TeacherSurname), 
+                            new Room(RoomNumber)
+                            );
+
+                        ValidateNumbers(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute,RoomNumber);
+                        ValidateTexts(LessonName, LessonTask, TeacherFirstName, TeacherSecondName, TeacherSurname);
+
                         repository.AddLesson(_lesson);
                     }
-                    catch (ArgumentNullException ex) 
+                    catch (ArgumentNullException) 
+                    {
+                        MessageBox.Show("One of the textbox was not filled!");
+                    }
+                    catch(UncorrectInputStringException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch (UncorrectInputIntervalHours ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch(UncorrectRoomNumberException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch(UncorrectHourRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch(UncorrectMinuteRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch(AreEqualTimesException ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
 
                 });
 
+            }
+        }
+        #endregion
+
+        #region Реализация валидации данных
+        private void ValidateTexts(string lessonName, string lessonTask, string teacherFirstName, string teacherSecondName, string teacherSurname)
+        {
+            CheckCorrectString(lessonName);
+            CheckCorrectString(lessonTask);
+            CheckCorrectString(teacherFirstName);
+            CheckCorrectString(teacherSecondName);
+            CheckCorrectString(teacherSurname);
+        }
+        private void ValidateNumbers(int firstTimeHour, int firstTimeMinute, int lastTimeHour, int lastTimeMinute, int number)
+        {
+            CheckCorrectHourRange(firstTimeHour);
+            CheckCorrectHourRange(lastTimeHour);
+            CheckCorrectMinuteRange(firstTimeMinute);
+            CheckCorrectMinuteRange(lastTimeMinute);
+            CheckCorrectInterval(firstTimeHour, lastTimeHour);
+            CheckNotEqualTimes(firstTimeHour, firstTimeMinute, lastTimeHour, lastTimeMinute);
+            CheckCorrectRoomNumber(number);
+        }
+        private void CheckCorrectString(string stringVariable)
+        {
+            if (string.IsNullOrEmpty(stringVariable))
+            {
+                throw new UncorrectInputStringException("One of the textbox was not filled!");
+            }
+        }
+        private void CheckCorrectInterval(int firstTimeHour,int lastTimeHour)
+        {
+            if (firstTimeHour > lastTimeHour)
+            {
+                throw new UncorrectInputIntervalHours("The last hour cannot be greater than the start hour.");
+            }
+        }
+        public void CheckNotEqualTimes(int firstTimeHour, int firstTimeMinute, int lastTimeHour, int lastTimeMinute)
+        {
+            if(firstTimeHour == lastTimeHour && firstTimeMinute == lastTimeMinute)
+            {
+                throw new AreEqualTimesException("The first and last times are the same!");
+            }
+        }
+        private void CheckCorrectHourRange(int hour)
+        {
+            if(hour<0 && hour > 23)
+            {
+                throw new UncorrectHourRangeException("The hour can range from 0 to 23!");
+            }
+        }
+        private void CheckCorrectMinuteRange(int minute)
+        {
+            if (minute <=0 && minute >= 60)
+            {
+                throw new UncorrectMinuteRangeException("The minute can range from 0 to 59!");
+            }
+        }
+        private void CheckCorrectRoomNumber(int number)
+        {
+            if (number <= 0 && number > 600)
+            {
+                throw new UncorrectRoomNumberException("Room number cannot be more than 600!");
             }
         }
         #endregion
@@ -96,11 +197,10 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                if(value>=0 && value<24)
-                {
-                    _firstTimeHour = value;
-                    OnPropertyChanged("FirstTimeHour");
-                }
+
+                 _firstTimeHour = value;
+                 OnPropertyChanged("FirstTimeHour");
+
             }
         }
         public int FirstTimeMinute
@@ -111,12 +211,8 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                if (value >= 0 && value < 60)
-                {
                     _firstTimeMinute = value;
                     OnPropertyChanged("FirstTimeMinute");
-                }
-
             }
         }
         public int LastTimeHour
@@ -127,11 +223,8 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                if (value >= 0 && value < 24)
-                {
-                    _lastTimeHour = value;
-                    OnPropertyChanged("LastTimeHour");
-                }
+                 _lastTimeHour = value;
+                 OnPropertyChanged("LastTimeHour");
             }
         }
         public int LastTimeMinute
@@ -142,11 +235,8 @@ namespace CourseWork2.ViewModel
             }
             set
             {
-                if (value >= 0 && value < 60)
-                {
-                    _lastTimeMinute = value;
-                    OnPropertyChanged("LastTimeMinute");
-                }
+                 _lastTimeMinute = value;
+                 OnPropertyChanged("LastTimeMinute");
             }
         }
 
