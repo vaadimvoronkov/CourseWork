@@ -14,9 +14,9 @@ namespace CourseWork2.ViewModel
     {
         private DateTime _selectedDate;
         private LessonsTabVM _lessonsTabVM;
-        private Repository repository;
+        private IRepository repository;
         private AddLessonVM addLessonVM;
-        public MainVM(Repository repository)
+        public MainVM(IRepository repository)
         {
             this.repository = repository;
             addLessonVM = new AddLessonVM(repository);

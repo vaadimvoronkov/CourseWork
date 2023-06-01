@@ -15,10 +15,10 @@ namespace CourseWork2.ViewModel
     public class LessonsTabVM
     {
         private ObservableCollection<LessonVM> _lessons = new();
-        private Repository repository;
+        private IRepository repository;
         public ObservableCollection<LessonVM> Lessons { get => _lessons; }
 
-        public LessonsTabVM(Repository repository, DateTime dateTime)
+        public LessonsTabVM(IRepository repository, DateTime dateTime)
         {
             this.repository = repository;
             LoadDate(dateTime);
@@ -27,9 +27,9 @@ namespace CourseWork2.ViewModel
         #region Реализация методов
         private void LoadDate(DateTime dateTime) 
         {
-            if(repository.lessons != null)
+            if(repository.GetLessons() != null)
             {
-                var loadedlessons = repository.lessons.Where(lesson => lesson.Day.Date == dateTime).Select(x=>new LessonVM(x));
+                var loadedlessons = repository.GetLessons().Where(lesson => lesson.Day.Date == dateTime).Select(x=>new LessonVM(x));
                 _lessons = new ObservableCollection<LessonVM>(loadedlessons);
             }
         }

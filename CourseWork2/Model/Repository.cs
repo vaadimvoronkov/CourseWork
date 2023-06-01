@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CourseWork2.Model
 {
-    public class Repository
+    public class Repository : IRepository
     {
         private static Repository repository;
         private Repository()
@@ -22,11 +22,11 @@ namespace CourseWork2.Model
             return repository;
         }
 
-        public List<Lesson> lessons = new List<Lesson>();
-        public List<Day> days = new List<Day>();
-        public List<Room> rooms = new List<Room>();
-        public List<Interval> intervals = new List<Interval>();
-        public List<Teacher> teachers = new List<Teacher>();
+        private List<Lesson> lessons = new List<Lesson>();
+        private List<Day> days = new List<Day>();
+        private List<Room> rooms = new List<Room>();
+        private List<Interval> intervals = new List<Interval>();
+        private List<Teacher> teachers = new List<Teacher>();
 
         #region Методы добавления данных
         public void AddLesson(Lesson lesson)
@@ -74,6 +74,32 @@ namespace CourseWork2.Model
             teachers.Remove(teacher);
         }
 
+        public List<Lesson> GetLessons()
+        {
+            return lessons;
+        }
+
+        public List<Day> GetDays()
+        {
+            return days;
+        }
+
+        public List<Room> GetRooms()
+        {
+            return rooms;
+        }
+
+        public List<Interval> GetIntervals()
+        {
+            return intervals;
+        }
+
+        public List<Teacher> GetTeachers()
+        {
+            return teachers;
+        }
+
         #endregion
+
     }
 }

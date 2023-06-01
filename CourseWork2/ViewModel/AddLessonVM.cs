@@ -12,7 +12,7 @@ namespace CourseWork2.ViewModel
     public class AddLessonVM : INotifyPropertyChanged 
     {
         private Lesson _lesson;
-        private Repository repository;
+        private IRepository repository;
         private string _lessonName;
         private DateTime _dayDate = DateTime.Today;
         private string _lessonTask;
@@ -25,7 +25,7 @@ namespace CourseWork2.ViewModel
         private string _teacherSecondName;
         private string _teacherSurname;
 
-        public AddLessonVM(Repository repository)
+        public AddLessonVM(IRepository repository)
         {
             this.repository = repository;
         }
@@ -138,7 +138,7 @@ namespace CourseWork2.ViewModel
         }
         private void CheckCorrectMinuteRange(int minute)
         {
-            if (minute <=0 || minute >= 60)
+            if (minute <0 || minute >= 60)
             {
                 throw new UncorrectMinuteRangeException("The minute can range from 0 to 59!");
             }
