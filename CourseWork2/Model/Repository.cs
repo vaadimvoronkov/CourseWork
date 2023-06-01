@@ -79,26 +79,6 @@ namespace CourseWork2.Model
             return lessons;
         }
 
-        public List<Day> GetDays()
-        {
-            return days;
-        }
-
-        public List<Room> GetRooms()
-        {
-            return rooms;
-        }
-
-        public List<Interval> GetIntervals()
-        {
-            return intervals;
-        }
-
-        public List<Teacher> GetTeachers()
-        {
-            return teachers;
-        }
-
         #endregion
 
     }

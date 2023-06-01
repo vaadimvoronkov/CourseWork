@@ -1,4 +1,6 @@
 ﻿using CourseWork2.Model;
+using CourseWork2.ViewModel;
+using Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,25 +36,25 @@ namespace Database
             throw new NotImplementedException();
         }
 
-        public List<Day> GetDays()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Interval> GetIntervals()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Lesson> GetLessons()
         {
-            throw new NotImplementedException();
+            List<Lesson> lessons = new();
+            using (ApplicationDataContext db = new())
+            {
+               var lessonsDb = db.Lessons.ToList();
+                foreach(var item in lessonsDb)
+                {
+                    lessons.Add(new Lesson(item.Name, item.Task, item.Progress,
+                        new Interval(item.Interval.FirstTimeHour,item.Interval.FirstTimeMinute,item.Interval.LastTimeHour,item.Interval.LastTimeMinute), 
+                        new Day(item.Day.Date),
+                        new Teacher(item.Teacher.FirstName,item.Teacher.SecondName,item.Teacher.Surname), 
+                        new Room(item.Room.Number)));
+                }
+                return lessons;
+            }
         }
 
-        public List<Room> GetRooms()
-        {
-            throw new NotImplementedException();
-        }
+
 
         public List<Teacher> GetTeachers()
         {

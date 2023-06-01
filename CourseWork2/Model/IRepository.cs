@@ -16,9 +16,6 @@ namespace CourseWork2.Model
         void RemoveRoom(Room room);
         void RemoveTeacher(Teacher teacher);
         List<Lesson> GetLessons();
-        List<Day> GetDays();
-        List<Room> GetRooms();
-        List<Interval> GetIntervals();
-        List<Teacher> GetTeachers();
+
     }
 }
