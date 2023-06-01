@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database.Tables
 {
-    public class Interval
+    public class IntervalDB
     {
         public int IntervalId { get; set; }
         public int FirstTimeHour { get; set; }

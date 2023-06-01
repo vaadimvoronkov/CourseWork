@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database.Tables
 {
-    public class Teacher
+    public class TeacherDB
     {
         public int TeacherId { get; set; }
         public string FirstName { get; set; }

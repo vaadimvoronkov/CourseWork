@@ -2,7 +2,7 @@
 
 namespace Database.Tables
 {
-    public class Lesson
+    public class LessonDB
     {
         public int LessonId { get; set; }
         public string Name { get; set; }
@@ -12,9 +12,9 @@ namespace Database.Tables
         public int IntervalId { get; set; }
         public virtual IntervalDB Interval { get; set; }
         public int TeacherId { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public virtual TeacherDB Teacher { get; set; }
         public int RoomId { get; set; }
-        public virtual Room Room { get; set; }
+        public virtual RoomDB Room { get; set; }
         public int DayId { get; set; }
         public virtual DayDB Day { get; set; }
 
