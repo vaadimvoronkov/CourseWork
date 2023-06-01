@@ -131,21 +131,21 @@ namespace CourseWork2.ViewModel
         }
         private void CheckCorrectHourRange(int hour)
         {
-            if(hour<0 && hour > 23)
+            if(hour<0 || hour > 23)
             {
                 throw new UncorrectHourRangeException("The hour can range from 0 to 23!");
             }
         }
         private void CheckCorrectMinuteRange(int minute)
         {
-            if (minute <=0 && minute >= 60)
+            if (minute <=0 || minute >= 60)
             {
                 throw new UncorrectMinuteRangeException("The minute can range from 0 to 59!");
             }
         }
         private void CheckCorrectRoomNumber(int number)
         {
-            if (number <= 0 && number > 600)
+            if (number <= 0 || number > 600)
             {
                 throw new UncorrectRoomNumberException("Room number cannot be more than 600!");
             }

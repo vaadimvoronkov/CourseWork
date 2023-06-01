@@ -10,11 +10,11 @@ namespace Database
 {
     public class ApplicationDataContext: DbContext
     {
-        public DbSet<Day> Days { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Interval> Intervals { get; set; }
-        public DbSet<Room> Rooms { get; set; } 
-        public DbSet <Teacher> Teachers { get; set; }
+        public DbSet<DayDB> Days { get; set; }
+        public DbSet<LessonDB> Lessons { get; set; }
+        public DbSet<IntervalDB> Intervals { get; set; }
+        public DbSet<RoomDB> Rooms { get; set; } 
+        public DbSet <TeacherDB> Teachers { get; set; }
 
         public ApplicationDataContext() 
         { 
@@ -22,13 +22,13 @@ namespace Database
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Day>(x =>
+            modelBuilder.Entity<DayDB>(x =>
             {
                 x.HasKey("DayId");
                 x.Property(x => x.Date);
                 x.HasMany(x => x.Lessons);
             });
-            modelBuilder.Entity<Lesson>(x =>
+            modelBuilder.Entity<LessonDB>(x =>
             {
                 x.HasKey("LessonId");
                 x.Property(x => x.Name);
@@ -39,13 +39,13 @@ namespace Database
                 x.HasOne(x => x.Room);
                 x.HasOne(x => x.Day);
             });
-            modelBuilder.Entity<Room>(x =>
+            modelBuilder.Entity<RoomDB>(x =>
             {
                 x.HasKey("RoomId");
                 x.Property(x => x.Number);
                 x.HasMany(x => x.Lessons);
             });
-            modelBuilder.Entity<Interval>(x =>
+            modelBuilder.Entity<IntervalDB>(x =>
             {
                 x.HasKey("IntervalId");
                 x.Property(x => x.FirstTimeHour);
@@ -53,7 +53,7 @@ namespace Database
                 x.Property(x => x.LastTimeHour);
                 x.Property(x => x.LastTimeMinute);
             });
-            modelBuilder.Entity<Teacher>(x =>
+            modelBuilder.Entity<TeacherDB>(x =>
             {
                 x.HasKey("TeacherId");
                 x.Property(x => x.FirstName);

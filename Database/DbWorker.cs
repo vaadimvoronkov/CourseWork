@@ -9,7 +9,7 @@ namespace Database
 {
     public static class DbWorker
     {
-            public static string CreateLesson(Lesson lesson) //исправить на && и доабвить методы првоерок
+            public static string CreateLesson(LessonDB lesson) //исправить на && и доабвить методы првоерок
         {
             string result = "Урок с таким наобором данных уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -32,7 +32,7 @@ namespace Database
                 return result;
             }
         }
-        public static string CreateDay(Day day)
+        public static string CreateDay(DayDB day)
         {
             string result = "День с такой датой уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -47,7 +47,7 @@ namespace Database
                 return result;
             }
         }
-        public static string CreateInterval(Interval interval)
+        public static string CreateInterval(IntervalDB interval)
         {
             string result = "Такой интервал уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -62,7 +62,7 @@ namespace Database
                 return result;
             }
         }
-        public static string CreateRoom(Room room)
+        public static string CreateRoom(RoomDB room)
         {
             string result = "Комната с таким номером уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -77,7 +77,7 @@ namespace Database
                 return result;
             }
         }
-        public static string CreateTeacher(Teacher teacher)
+        public static string CreateTeacher(TeacherDB teacher)
         {
             string result = "Такой учитель уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -94,7 +94,7 @@ namespace Database
         }
 
         //Удаление данных
-        public static string DeleteLesson(Lesson lesson)
+        public static string DeleteLesson(LessonDB lesson)
         {
             string result = "Такого урока не существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -105,7 +105,7 @@ namespace Database
             }
             return result;
         }
-        public static string DeleteDay(Day day)
+        public static string DeleteDay(DayDB day)
         {
             string result = "Такого дня не существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -116,7 +116,7 @@ namespace Database
             }
             return result;
         }
-        public static string DeleteInterval(Interval interval)
+        public static string DeleteInterval(IntervalDB interval)
         {
             string result = "Такого временного интервала не существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -127,7 +127,7 @@ namespace Database
             }
             return result;
         }
-        public static string DeleteRoom(Room room)
+        public static string DeleteRoom(RoomDB room)
         {
             string result = "Такого кабинета не существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -138,7 +138,7 @@ namespace Database
             }
             return result;
         }
-        public static string DeleteTeacher(Teacher teacher)
+        public static string DeleteTeacher(TeacherDB teacher)
         {
             string result = "Такого учителя не существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())

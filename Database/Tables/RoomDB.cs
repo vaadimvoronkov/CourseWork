@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Database.Tables
 {
-    public class Room
+    public class RoomDB
     {
         public int RoomId { get; set; }
         public int Number { get; set; }
-        public virtual List<Lesson> Lessons { get; set; }
+        public virtual List<LessonDB> Lessons { get; set; }
     }
 }
