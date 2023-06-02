@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Documents;
 
 namespace CourseWork2.Model
@@ -15,7 +16,10 @@ namespace CourseWork2.Model
         void RemoveLesson(Lesson lesson);
         void RemoveRoom(Room room);
         void RemoveTeacher(Teacher teacher);
+        Teacher GetTeacher(string firstName, string secondName, string LastName);
+        Day GetDay(DateTime dateTime);
+        Interval GetInterval(int firstTimeHour, int firstTimeMinute, int lastTimeHour, int lastTimeMinute);
+        Room GetRoom(int number);
         List<Lesson> GetLessons();
-
     }
 }

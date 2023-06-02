@@ -39,15 +39,18 @@ namespace CourseWork2.ViewModel
                 {
                     try
                     {
-                        _lesson = 
-                         Lesson.CreateBuilder()
+                         _lesson =  Lesson.CreateBuilder()
+
                         .SetName(LessonName)
                         .SetTask(LessonTask)
-                        .IsCompleted(false)
-                        .SetInterval(new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute))
-                        .SetDay(new Day(DayDate))
-                        .SetTeacher(new Teacher(TeacherFirstName, TeacherSecondName, TeacherSurname))
-                        .SetRoom(new Room(RoomNumber)).Build();
+                        .SetProgress(false)
+
+                        .SetInterval(repository.GetInterval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute))
+                        .SetDay(repository.GetDay(DayDate))
+                        .SetTeacher(repository.GetTeacher(TeacherFirstName, TeacherSecondName, TeacherSurname))
+                        .SetRoom(repository.GetRoom(RoomNumber))
+
+                        .Build();
 
                         ValidateNumbers(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute,RoomNumber);
                         ValidateTexts(LessonName, LessonTask, TeacherFirstName, TeacherSecondName, TeacherSurname);

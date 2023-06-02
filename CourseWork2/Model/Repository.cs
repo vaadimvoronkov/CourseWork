@@ -74,12 +74,64 @@ namespace CourseWork2.Model
             teachers.Remove(teacher);
         }
 
+        #endregion
+
+        #region Методы получения данных
+        public Teacher GetTeacher(string firstName, string secondName, string surname)
+        {
+            if (teachers.Contains(teachers.SingleOrDefault(x => x.FirstName == firstName && x.SecondName == secondName && x.Surname == surname)))
+            {
+                return teachers.Single(x => x.FirstName == firstName && x.SecondName == secondName && x.Surname == surname);
+            }
+            else
+            {
+                teachers.Add(new Teacher(firstName, secondName, surname));
+                return teachers.Single(x => x.FirstName == firstName && x.SecondName == secondName && x.Surname == surname);
+            }
+        }
+        public Day GetDay(DateTime date)
+        {
+            if (days.Contains(days.SingleOrDefault(x => x.Date == date)))
+            {
+                return days.Single(x => x.Date == date);
+            }
+            else
+            {
+                days.Add(new Day(date));
+                return days.Single(x => x.Date == date);
+            }
+        }
+
+        public Interval GetInterval(int firstTimeHour, int firstTimeMinute, int lastTimeHour, int lastTimeMinute)
+        {
+            if (intervals.Contains(intervals.SingleOrDefault(x => x.FirstTimeHour == firstTimeHour && x.FirstTimeMinute == firstTimeMinute && x.LastTimeHour == lastTimeHour && x.LastTimeMinute==lastTimeMinute)))
+            {
+                return intervals.Single(x => x.FirstTimeHour == firstTimeHour && x.FirstTimeMinute == firstTimeMinute && x.LastTimeHour == lastTimeHour && x.LastTimeMinute == lastTimeMinute);
+            }
+            else
+            {
+                intervals.Add(new Interval(firstTimeHour,firstTimeMinute,lastTimeHour,lastTimeMinute));
+                return intervals.Single(x => x.FirstTimeHour == firstTimeHour && x.FirstTimeMinute == firstTimeMinute && x.LastTimeHour == lastTimeHour && x.LastTimeMinute == lastTimeMinute);
+            }
+        }
+
+        public Room GetRoom(int number)
+        {
+            if (rooms.Contains(rooms.SingleOrDefault(x => x.Number == number)))
+            {
+                return rooms.Single( x => x.Number == number);
+            }
+            else
+            {
+                rooms.Add(new Room(number));
+                return rooms.Single(x => x.Number == number);
+            }
+        }
+
         public List<Lesson> GetLessons()
         {
             return lessons;
         }
-
         #endregion
-
     }
 }

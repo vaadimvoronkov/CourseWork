@@ -34,7 +34,7 @@ namespace CourseWork2.Model
             return this;
         }
 
-        public LessonBuilder IsCompleted(bool progress)
+        public LessonBuilder SetProgress(bool progress)
         {
            lesson.Progress = progress;
             return this;

@@ -51,7 +51,7 @@ namespace Database
                         _ = Lesson.CreateBuilder()
                         .SetName(item.Name)
                         .SetTask(item.Task)
-                        .IsCompleted(item.Progress)
+                        .SetProgress(item.Progress)
                         .SetInterval(new Interval(item.Interval.FirstTimeHour, item.Interval.FirstTimeMinute, item.Interval.LastTimeHour, item.Interval.LastTimeMinute))
                         .SetDay(new Day(item.Day.Date))
                         .SetTeacher(new Teacher(item.Teacher.FirstName, item.Teacher.SecondName, item.Teacher.Surname))
