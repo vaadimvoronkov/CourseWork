@@ -1,9 +1,11 @@
 ﻿using CourseWork2.Model;
 using CourseWork2.ViewModel;
 using Database.Tables;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,11 +46,18 @@ namespace Database
                var lessonsDb = db.Lessons.ToList();
                 foreach(var item in lessonsDb)
                 {
-                    lessons.Add(new Lesson(item.Name, item.Task, item.Progress,
-                        new Interval(item.Interval.FirstTimeHour,item.Interval.FirstTimeMinute,item.Interval.LastTimeHour,item.Interval.LastTimeMinute), 
-                        new Day(item.Day.Date),
-                        new Teacher(item.Teacher.FirstName,item.Teacher.SecondName,item.Teacher.Surname), 
-                        new Room(item.Room.Number)));
+                    lessons.Add
+                    (
+                        _ = Lesson.CreateBuilder()
+                        .SetName(item.Name)
+                        .SetTask(item.Task)
+                        .IsCompleted(item.Progress)
+                        .SetInterval(new Interval(item.Interval.FirstTimeHour, item.Interval.FirstTimeMinute, item.Interval.LastTimeHour, item.Interval.LastTimeMinute))
+                        .SetDay(new Day(item.Day.Date))
+                        .SetTeacher(new Teacher(item.Teacher.FirstName, item.Teacher.SecondName, item.Teacher.Surname))
+                        .SetRoom(new Room(item.Room.Number)).
+                        Build()
+                    );
                 }
                 return lessons;
             }

@@ -39,15 +39,15 @@ namespace CourseWork2.ViewModel
                 {
                     try
                     {
-                        _lesson = new(
-                            LessonName, 
-                            LessonTask, 
-                            false, 
-                            new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute),
-                            new Day(DayDate),
-                            new Teacher(TeacherFirstName, TeacherSecondName, TeacherSurname), 
-                            new Room(RoomNumber)
-                            );
+                        _lesson = 
+                         Lesson.CreateBuilder()
+                        .SetName(LessonName)
+                        .SetTask(LessonTask)
+                        .IsCompleted(false)
+                        .SetInterval(new Interval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute))
+                        .SetDay(new Day(DayDate))
+                        .SetTeacher(new Teacher(TeacherFirstName, TeacherSecondName, TeacherSurname))
+                        .SetRoom(new Room(RoomNumber)).Build();
 
                         ValidateNumbers(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute,RoomNumber);
                         ValidateTexts(LessonName, LessonTask, TeacherFirstName, TeacherSecondName, TeacherSurname);
@@ -145,7 +145,7 @@ namespace CourseWork2.ViewModel
         }
         private void CheckCorrectRoomNumber(int number)
         {
-            if (number <= 0 || number > 600)
+            if (number < 0 || number > 600)
             {
                 throw new UncorrectRoomNumberException("Room number cannot be more than 600!");
             }
