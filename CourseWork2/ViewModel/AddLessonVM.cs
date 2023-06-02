@@ -3,6 +3,7 @@ using CourseWork2.Exceptions;
 using CourseWork2.Model;
 using Microsoft.Windows.Themes;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -31,7 +32,7 @@ namespace CourseWork2.ViewModel
         }
 
         #region Реализация привязки комманд
-        public RelayCommand AddLesson  //переделать создание нового урока так, что при вводе данных в текстбокс мы начинаем искать соответствие этого имени в репозитории в нужном списке, тогда имеет смысл создавать новые таблицы в бд. Вводим имя, проверяем есть такое имя или нет, если есть, то добавляем с репозитория объект из листа, если нет, то добавляем новый элемент в лист
+        public RelayCommand AddLesson  
         {
             get
             {
@@ -93,6 +94,7 @@ namespace CourseWork2.ViewModel
         #endregion
 
         #region Реализация валидации данных
+
         private void ValidateTexts(string lessonName, string lessonTask, string teacherFirstName, string teacherSecondName, string teacherSurname)
         {
             CheckCorrectString(lessonName);
