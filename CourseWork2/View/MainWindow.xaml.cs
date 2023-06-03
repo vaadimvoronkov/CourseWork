@@ -13,7 +13,7 @@ namespace CourseWork2.View
         public MainWindow()
         {
             InitializeComponent();
-            Repository repository = Repository.GetInstance();
+            IRepository repository = Repository.GetInstance();
             DataContext  = new MainVM(repository);
         }
     }

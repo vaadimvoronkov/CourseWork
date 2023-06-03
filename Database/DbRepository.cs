@@ -8,35 +8,120 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Converters;
 
 namespace Database
 {
     public class DbRepository : IRepository
     {
         #region Методы добавления данных
-        public void AddDay(Day day)
+        public Day AddDay(Day day)
         {
-            throw new NotImplementedException();
+            DayDB dayDB = new DayDB { Date= day.Date };
+            using(ApplicationDataContext db = new ApplicationDataContext())
+            {
+                bool isExist = db.Days.Any(x => x.Date == day.Date);
+                if (isExist != true)
+                {
+                    db.Days.Add(dayDB);
+                    db.SaveChanges();
+                }
+            }
+            return day;
         }
 
-        public void AddInterval(Interval interval)
+        public Interval AddInterval(Interval interval)
         {
-            throw new NotImplementedException();
+            IntervalDB intervalDB = new IntervalDB { FirstTimeHour = interval.FirstTimeHour,
+                FirstTimeMinute = interval.FirstTimeMinute,
+                LastTimeHour = interval.LastTimeHour, 
+                LastTimeMinute = interval.LastTimeMinute };
+            using (ApplicationDataContext db = new ApplicationDataContext())
+            {
+                bool isExist = db.Intervals.Any(x => x.FirstTimeHour == interval.FirstTimeHour 
+                && x.FirstTimeMinute == interval.FirstTimeMinute 
+                && x.LastTimeHour == interval.LastTimeHour 
+                && x.LastTimeMinute == interval.LastTimeMinute);
+                if (isExist != true)
+                {
+                    db.Intervals.Add(intervalDB);
+                    db.SaveChanges();
+                }
+            }
+            return interval;
         }
 
         public void AddLesson(Lesson lesson)
         {
-            throw new NotImplementedException();
+            DayDB dayDB = new DayDB { Date = lesson.Day.Date };
+            RoomDB roomDB = new RoomDB { Number = lesson.Room.Number };
+            IntervalDB intervalDB = new IntervalDB
+            {
+                FirstTimeHour = lesson.Interval.FirstTimeHour,
+                FirstTimeMinute = lesson.Interval.FirstTimeMinute,
+                LastTimeHour = lesson.Interval.LastTimeHour,
+                LastTimeMinute = lesson.Interval.LastTimeMinute
+            };
+            TeacherDB teacherDB = new TeacherDB { FirstName = lesson.Teacher.FirstName, SecondName = lesson.Teacher.SecondName, Surname = lesson.Teacher.Surname };
+
+            LessonDB lessonDB = new LessonDB
+            {
+                Name = lesson.Name,
+                Task = lesson.Task,
+                Progress = lesson.Progress,
+                Day = dayDB,
+                Interval = intervalDB
+            };
+
+            using (ApplicationDataContext db = new ApplicationDataContext())
+            {
+                bool isExist = db.Lessons.Any(x => x.Name == lesson.Name
+                && x.Task == lesson.Task
+                && x.Progress == lesson.Progress
+                && x.Day == lessonDB.Day
+                && x.Interval == lessonDB.Interval
+                && x.Teacher == lessonDB.Teacher
+                && x.Room == lessonDB.Room);
+                if (isExist != true)
+                {
+                    AddDay(lesson.Day);
+                    AddInterval(lesson.Interval);
+                    AddRoom(lesson.Room);
+                    AddTeacher(lesson.Teacher);
+                    db.Lessons.Add(lessonDB);
+                    db.SaveChanges();
+                }
+            }
         }
 
-        public void AddRoom(Room room)
+        public Room AddRoom(Room room)
         {
-            throw new NotImplementedException();
+            RoomDB roomDB = new RoomDB { Number = room.Number };
+            using (ApplicationDataContext db = new ApplicationDataContext())
+            {
+                bool isExist = db.Rooms.Any(x => x.Number == room.Number);
+                if (isExist != true)
+                {
+                    db.Rooms.Add(roomDB);
+                    db.SaveChanges();
+                }
+            }
+            return room;
         }
 
-        public void AddTeacher(Teacher teacher)
+        public Teacher AddTeacher(Teacher teacher)
         {
-            throw new NotImplementedException();
+            TeacherDB teacherDB = new TeacherDB { FirstName = teacher.FirstName, SecondName = teacher.SecondName, Surname = teacher.Surname };
+            using (ApplicationDataContext db = new ApplicationDataContext())
+            {
+                bool isExist = db.Teachers.Any(x => x.FirstName == teacher.FirstName && x.SecondName == teacher.SecondName && x.Surname == teacher.Surname);
+                if (isExist != true)
+                {
+                    db.Teachers.Add(teacherDB);
+                    db.SaveChanges();
+                }
+            }
+            return teacher;
         }
         #endregion
 
@@ -97,7 +182,6 @@ namespace Database
                 return lessons;
             }
         }
-
 
         public List<Teacher> GetTeachers()
         {

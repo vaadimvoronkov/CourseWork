@@ -22,15 +22,6 @@ namespace CourseWork2.Model
         {
             return new LessonBuilder();
         }
-        //public Lesson(string name, string task, bool progress, Interval interval, Day day, Teacher teacher, Room room)
-        //{
-        //    Name = name ?? throw new ArgumentNullException(nameof(name));
-        //    Task = task ?? throw new ArgumentNullException(nameof(task));
-        //    Progress = progress;
-        //    Interval = interval ?? throw new ArgumentNullException(nameof(interval));
-        //    Day = day ?? throw new ArgumentNullException(nameof(day));
-        //    Teacher = teacher ?? throw new ArgumentNullException(nameof(teacher));
-        //    Room = room ?? throw new ArgumentNullException(nameof(room));
-        //}
+
     }
 }

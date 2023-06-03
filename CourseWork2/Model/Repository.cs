@@ -33,21 +33,25 @@ namespace CourseWork2.Model
         {
             lessons.Add(lesson);
         }
-        public void AddDay(Day day)
+        public Day AddDay(Day day)
         {
             days.Add(day);
+            return day;
         }
-        public void AddRoom(Room room)
+        public Room AddRoom(Room room)
         {
             rooms.Add(room);
+            return room;
         }
-        public void AddInterval(Interval interval)
+        public Interval AddInterval(Interval interval)
         {
             intervals.Add(interval);
+            return interval;
         }
-        public void AddTeacher(Teacher teacher)
+        public Teacher AddTeacher(Teacher teacher)
         {
             teachers.Add(teacher);
+            return teacher;
         }
 
         #endregion

@@ -6,11 +6,11 @@ namespace CourseWork2.Model
 {
     public interface IRepository
     {
-        void AddDay(Day day);
-        void AddInterval(Interval interval);
+        Day AddDay(Day day);
+        Interval AddInterval(Interval interval);
         void AddLesson(Lesson lesson);
-        void AddRoom(Room room);
-        void AddTeacher(Teacher teacher);
+        Room AddRoom(Room room);
+        Teacher AddTeacher(Teacher teacher);
 
         void RemoveLesson(Lesson lesson);
 

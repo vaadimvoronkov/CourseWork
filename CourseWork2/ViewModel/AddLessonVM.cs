@@ -53,6 +53,7 @@ namespace CourseWork2.ViewModel
                         .SetName(LessonName)
                         .SetTask(LessonTask)
                         .SetProgress(false)
+
                         .SetInterval(repository.GetInterval(_interval))
                         .SetDay(repository.GetDay(_day))
                         .SetTeacher(repository.GetTeacher(_teacher))
