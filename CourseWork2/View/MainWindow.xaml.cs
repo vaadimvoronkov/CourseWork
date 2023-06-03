@@ -1,7 +1,8 @@
 ﻿using CourseWork2.ViewModel;
 using System.Windows;
 using System.Data;
-using CourseWork2.Model;
+using Models;
+using Database;
 
 namespace CourseWork2.View
 {
@@ -13,7 +14,7 @@ namespace CourseWork2.View
         public MainWindow()
         {
             InitializeComponent();
-            IRepository repository = Repository.GetInstance();
+            IRepository repository = new DbRepository();
             DataContext  = new MainVM(repository);
         }
     }

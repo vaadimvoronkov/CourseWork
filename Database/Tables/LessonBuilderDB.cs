@@ -1,19 +1,20 @@
-﻿using System;
+﻿using Database.Tables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseWork2.Model
+namespace Database
 {
-    public class LessonBuilder
+    public class LessonBuilderDB
     {
-        private Lesson lesson;
-        public LessonBuilder()
+        private LessonDB lesson;
+        public LessonBuilderDB()
         {
-            lesson = new Lesson();
+            lesson = new LessonDB();
         }
-        public LessonBuilder SetName(string name)
+        public LessonBuilderDB SetName(string name)
         {
             if (name is null)
             {
@@ -23,7 +24,7 @@ namespace CourseWork2.Model
             lesson.Name = name;
             return this;
         }
-        public LessonBuilder SetTask(string task)
+        public LessonBuilderDB SetTask(string task)
         {
             if (task is null)
             {
@@ -34,12 +35,12 @@ namespace CourseWork2.Model
             return this;
         }
 
-        public LessonBuilder SetProgress(bool progress)
+        public LessonBuilderDB SetProgress(bool progress)
         {
            lesson.Progress = progress;
             return this;
         }
-        public LessonBuilder SetInterval(Interval interval)
+        public LessonBuilderDB SetInterval(IntervalDB interval)
         {
             if (interval is null)
             {
@@ -49,7 +50,7 @@ namespace CourseWork2.Model
             lesson.Interval= interval;
             return this;
         }
-        public LessonBuilder SetTeacher(Teacher teacher)
+        public LessonBuilderDB SetTeacher(TeacherDB teacher)
         {
             if (teacher is null)
             {
@@ -59,7 +60,7 @@ namespace CourseWork2.Model
             lesson.Teacher = teacher;
             return this;
         }
-        public LessonBuilder SetRoom(Room room)
+        public LessonBuilderDB SetRoom(RoomDB room)
         {
             if (room is null)
             {
@@ -69,7 +70,7 @@ namespace CourseWork2.Model
             lesson.Room = room;
             return this;
         }
-        public LessonBuilder SetDay(Day day)
+        public LessonBuilderDB SetDay(DayDB day)
         {
             if (day is null)
             {
@@ -79,7 +80,7 @@ namespace CourseWork2.Model
             lesson.Day = day;
             return this;
         }
-        public Lesson Build()
+        public LessonDB Build()
         {
             return lesson;
         }

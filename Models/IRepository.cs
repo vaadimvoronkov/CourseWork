@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 
-namespace CourseWork2.Model
+namespace Models
 {
     public interface IRepository
     {

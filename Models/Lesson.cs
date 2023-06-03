@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CourseWork2.Model
+namespace Models
 {
     public class Lesson
     {

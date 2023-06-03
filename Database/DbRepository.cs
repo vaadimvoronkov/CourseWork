@@ -1,5 +1,4 @@
-﻿using CourseWork2.Model;
-using CourseWork2.ViewModel;
+﻿using Models;
 using Database.Tables;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media.Converters;
+
 
 namespace Database
 {
@@ -70,7 +69,14 @@ namespace Database
                 Task = lesson.Task,
                 Progress = lesson.Progress,
                 Day = dayDB,
-                Interval = intervalDB
+                DayId = dayDB.DayId,
+                Interval = intervalDB,
+                IntervalId = intervalDB.IntervalId,
+                Room = roomDB,
+                RoomId = roomDB.RoomId,
+                Teacher = teacherDB,
+                TeacherId = teacherDB.TeacherId
+                
             };
 
             using (ApplicationDataContext db = new ApplicationDataContext())
@@ -129,26 +135,101 @@ namespace Database
 
         public Day GetDay(Day day)
         {
-            throw new NotImplementedException();
+            using (ApplicationDataContext db = new())
+            {
+                if (db.Days.Any(x => x.Date == day.Date))
+                {
+                    var itemDb = db.Days.Where(x => x.Date == day.Date).ToList().First();
+                    var item = new Day(itemDb.Date);
+
+                    return item;
+                }
+                else
+                {
+                    return AddDay(day);
+                }
+            }
         }
         public Room GetRoom(Room room)
         {
-            throw new NotImplementedException();
+            using (ApplicationDataContext db = new())
+            {
+
+                if (db.Rooms.Any(x => x.Number == room.Number))
+                {
+                    var itemDb = db.Rooms.Where(x => x.Number == room.Number).ToList().First();
+                    var item = new Room(itemDb.Number);
+
+                    return item;
+                }
+                else
+                {
+                    return AddRoom(room);
+                }
+            }
         }
-        public Teacher GetTeacher(Teacher teacher)
-        {
-            throw new NotImplementedException();
+            public Teacher GetTeacher(Teacher teacher)
+            {
+            using (ApplicationDataContext db = new())
+            {
+                if (db.Teachers.Any(x => x.FirstName == teacher.FirstName
+                && x.SecondName == teacher.SecondName 
+                && x.Surname == teacher.Surname))
+                {
+                    var itemDb = db.Teachers.Where(x => x.FirstName == teacher.FirstName
+                     && x.SecondName == teacher.SecondName
+                     && x.Surname == teacher.Surname).ToList().First();
+                    var item = new Teacher(itemDb.FirstName,itemDb.SecondName,itemDb.Surname);
+
+                    return item;
+                }
+                else
+                {
+                    return AddTeacher(teacher);
+                }
+            }
         }
 
-        public Interval GetInterval(Interval interval)
-        {
-            throw new NotImplementedException();
-        }
+            public Interval GetInterval(Interval interval)
+            {
+                using (ApplicationDataContext db = new())
+                {
 
-        public List<Interval> GetIntervals()
-        {
-            throw new NotImplementedException();
-        }
+                    if (db.Intervals.Any(x => x.FirstTimeHour == interval.FirstTimeHour
+                      && x.FirstTimeMinute == interval.FirstTimeMinute
+                      && x.LastTimeHour == interval.LastTimeHour
+                      && x.LastTimeMinute == interval.LastTimeMinute))
+                    {
+                        var itemDb = db.Intervals.Where(x => x.FirstTimeHour == interval.FirstTimeHour
+                        && x.FirstTimeMinute == interval.FirstTimeMinute
+                        && x.LastTimeHour == interval.LastTimeHour
+                        && x.LastTimeMinute == interval.LastTimeMinute).ToList().First();
+
+                        var item = new Interval(itemDb.FirstTimeHour, itemDb.FirstTimeMinute, itemDb.LastTimeHour, itemDb.LastTimeMinute);
+
+                        return item;
+                    }
+                    else
+                    {
+                        return AddInterval(interval);
+                    }
+                }
+            }
+
+            public List<Interval> GetIntervals()
+            {
+                List<Interval> intervals = new();
+                using (ApplicationDataContext db = new())
+                {
+                    var intervalsDb = db.Intervals.ToList();
+                    foreach (var item in intervalsDb)
+                    {
+                        var interval = new Interval(item.FirstTimeHour, item.FirstTimeMinute, item.LastTimeHour, item.LastTimeMinute);
+                        intervals.Add(interval);
+                    }
+                    return intervals;
+                }
+            } 
         public List<Day> GetDays()
         {
             throw new NotImplementedException();
@@ -166,18 +247,20 @@ namespace Database
                 var lessonsDb = db.Lessons.ToList();
                 foreach (var item in lessonsDb)
                 {
-                    lessons.Add
-                    (
-                        _ = Lesson.CreateBuilder()
-                        .SetName(item.Name)
-                        .SetTask(item.Task)
-                        .SetProgress(item.Progress)
-                        .SetInterval(new Interval(item.Interval.FirstTimeHour, item.Interval.FirstTimeMinute, item.Interval.LastTimeHour, item.Interval.LastTimeMinute))
-                        .SetDay(new Day(item.Day.Date))
-                        .SetTeacher(new Teacher(item.Teacher.FirstName, item.Teacher.SecondName, item.Teacher.Surname))
-                        .SetRoom(new Room(item.Room.Number)).
-                        Build()
-                    );
+                    if (lessons != null)
+                    {
+                        Lesson lesson = Lesson.CreateBuilder()
+                       .SetName(item.Name)
+                       .SetTask(item.Task)
+                       .SetProgress(item.Progress)
+                       .SetInterval(new Interval(item.Interval.FirstTimeHour, item.Interval.FirstTimeMinute, item.Interval.LastTimeHour, item.Interval.LastTimeMinute))
+                       .SetDay(new Day(item.Day.Date))
+                       .SetTeacher(new Teacher(item.Teacher.FirstName, item.Teacher.SecondName, item.Teacher.Surname))
+                       .SetRoom(new Room(item.Room.Number)).
+                       Build();
+
+                        lessons.Add(lesson);
+                    }
                 }
                 return lessons;
             }

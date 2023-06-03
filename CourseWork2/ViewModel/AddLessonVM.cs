@@ -1,7 +1,7 @@
 ﻿using CourseWork2.Commands;
 using CourseWork2.Exceptions;
-using CourseWork2.Model;
 using Microsoft.Windows.Themes;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

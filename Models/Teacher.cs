@@ -5,7 +5,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseWork2.Model
+namespace Models
 {
     public class Teacher
     {

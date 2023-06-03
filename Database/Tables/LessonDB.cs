@@ -1,4 +1,4 @@
-﻿using CourseWork2.Model;
+﻿using Models;
 using System;
 
 namespace Database.Tables
@@ -18,5 +18,9 @@ namespace Database.Tables
         public virtual RoomDB Room { get; set; }
         public int DayId { get; set; }
         public virtual DayDB Day { get; set; }
+        public LessonBuilderDB CreateBuilder()
+        {
+            return new LessonBuilderDB();
+        }
     }
 }
