@@ -13,6 +13,10 @@ namespace CourseWork2.ViewModel
     public class AddLessonVM : INotifyPropertyChanged 
     {
         private Lesson _lesson;
+        private Interval _interval;
+        private Teacher _teacher;
+        private Day _day;
+        private Room _room;
         private IRepository repository;
         private string _lessonName;
         private DateTime _dayDate = DateTime.Today;
@@ -40,17 +44,19 @@ namespace CourseWork2.ViewModel
                 {
                     try
                     {
-                         _lesson =  Lesson.CreateBuilder()
+                        _day = new(DayDate);
+                        _room = new(RoomNumber);
+                        _interval = new(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute);
+                        _teacher = new(TeacherFirstName, TeacherSecondName, TeacherSurname);
 
+                         _lesson =  Lesson.CreateBuilder()
                         .SetName(LessonName)
                         .SetTask(LessonTask)
                         .SetProgress(false)
-
-                        .SetInterval(repository.GetInterval(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute))
-                        .SetDay(repository.GetDay(DayDate))
-                        .SetTeacher(repository.GetTeacher(TeacherFirstName, TeacherSecondName, TeacherSurname))
-                        .SetRoom(repository.GetRoom(RoomNumber))
-
+                        .SetInterval(repository.GetInterval(_interval))
+                        .SetDay(repository.GetDay(_day))
+                        .SetTeacher(repository.GetTeacher(_teacher))
+                        .SetRoom(repository.GetRoom(_room))
                         .Build();
 
                         ValidateNumbers(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute,RoomNumber);

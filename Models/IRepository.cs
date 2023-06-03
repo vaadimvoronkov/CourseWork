@@ -12,17 +12,16 @@ namespace CourseWork2.Model
         void AddRoom(Room room);
         void AddTeacher(Teacher teacher);
 
+        void RemoveDay(Day day);
+        void RemoveInterval(Interval interval);
         void RemoveLesson(Lesson lesson);
+        void RemoveRoom(Room room);
+        void RemoveTeacher(Teacher teacher);
 
         Teacher GetTeacher(Teacher teacher);
         Day GetDay(Day day);
         Interval GetInterval(Interval interval);
         Room GetRoom(Room room);
-
         List<Lesson> GetLessons();
-        List<Interval> GetIntervals();
-        List<Room> GetRooms();
-        List<Teacher> GetTeachers();
-        List<Day> GetDays();
     }
 }

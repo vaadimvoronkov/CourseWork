@@ -10,7 +10,7 @@ namespace Database
     public static class DbWorker
     {
             public static string CreateLesson(LessonDB lesson) //исправить на && и доабвить методы првоерок
-        {
+            {
             string result = "Урок с таким наобором данных уже существует!";
             using (ApplicationDataContext db = new ApplicationDataContext())
             {

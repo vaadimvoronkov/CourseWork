@@ -57,6 +57,23 @@ namespace CourseWork2.Model
         {
             lessons.Remove(lesson);
         }
+        public void RemoveDay(Day day)
+        {
+            days.Remove(day);
+        }
+        public void RemoveRoom(Room room)
+        {
+            rooms.Remove(room);
+        }
+        public void RemoveInterval(Interval interval)
+        {
+            intervals.Remove(interval);
+        }
+        public void RemoveTeacher(Teacher teacher)
+        {
+            teachers.Remove(teacher);
+        }
+
         #endregion
 
         #region Методы получения данных
@@ -129,26 +146,6 @@ namespace CourseWork2.Model
         public List<Lesson> GetLessons()
         {
             return lessons;
-        }
-
-        public List<Interval> GetIntervals()
-        {
-            return intervals;
-        }
-
-        public List<Room> GetRooms()
-        {
-            return rooms;
-        }
-
-        public List<Teacher> GetTeachers()
-        {
-            return teachers;
-        }
-
-        public List<Day> GetDays()
-        {
-            return days;
         }
         #endregion
     }

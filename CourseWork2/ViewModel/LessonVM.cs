@@ -58,7 +58,7 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.Interval.FirstTimeHour+":"+_lesson.Interval.FirstTimeMinute.ToString();
+                return FormateTime(_lesson.Interval.FirstTimeHour) + ":" + FormateTime(_lesson.Interval.FirstTimeMinute);
             }
 
         }
@@ -66,7 +66,7 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return _lesson.Interval.LastTimeHour+ ":" + _lesson.Interval.LastTimeMinute.ToString();
+                return FormateTime(_lesson.Interval.LastTimeHour) + ":" + FormateTime(_lesson.Interval.LastTimeMinute);
             }
         }
         public int Room
@@ -89,6 +89,15 @@ namespace CourseWork2.ViewModel
             }
         }
         #endregion
+
+        public string FormateTime(int number)
+        {
+            if(number>=0 && number < 10)
+            {
+                return ("0" + number.ToString());
+            }
+            return number.ToString();
+        }
 
         #region Реализация INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
