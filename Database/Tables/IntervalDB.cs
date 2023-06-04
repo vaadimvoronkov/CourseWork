@@ -13,6 +13,8 @@ namespace Database.Tables
         public int FirstTimeMinute { get; set; }
         public int LastTimeHour { get; set; }
         public int LastTimeMinute { get; set; }
+        public int LessonId { get; private set; }
+        public virtual List<LessonDB> Lesson { get; set; }
 
     }
 }

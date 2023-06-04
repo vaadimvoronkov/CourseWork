@@ -14,66 +14,67 @@ namespace CourseWork2.ViewModel
     {
         private DateTime _selectedDate;
         private LessonsTabVM _lessonsTabVM;
-        private IRepository repository;
-        private AddLessonVM addLessonVM;
+        private AddLessonVM _addLessonVM;
+        private readonly IRepository _repository;
+
         public MainVM(IRepository repository)
         {
-            this.repository = repository;
-            addLessonVM = new AddLessonVM(repository);
+            _repository = repository;
+            _addLessonVM = new AddLessonVM(repository);
             SelectedDate = DateTime.Now;
         }
 
-        #region Реализация свойств 
-        public DateTime SelectedDate 
+        public DateTime SelectedDate
         {
-            get
-            {
-                return _selectedDate;
-            }
+            get => _selectedDate;
             set
             {
-                _selectedDate = value;
-                OnPropertyChanged("SelectedDate");
-                UpdateLessons();
+                if (_selectedDate != value)
+                {
+                    _selectedDate = value;
+                    OnPropertyChanged(nameof(SelectedDate));
+                    UpdateLessons();
+                }
             }
         }
-        public LessonsTabVM LessonsTab 
+
+        public LessonsTabVM LessonsTab
         {
-            get
-            {
-                return _lessonsTabVM;
-            }
+            get => _lessonsTabVM;
             set
             {
-                _lessonsTabVM = value;
-                OnPropertyChanged("LessonsTab");
+                if (_lessonsTabVM != value)
+                {
+                    _lessonsTabVM = value;
+                    OnPropertyChanged(nameof(LessonsTab));
+                }
             }
         }
+
         public AddLessonVM AddLessonVM
         {
-            get
-            {
-                return addLessonVM;
-            }
+            get => _addLessonVM;
             set
             {
-                addLessonVM = value;
-                OnPropertyChanged("AddLessonVM");
+                if (_addLessonVM != value)
+                {
+                    _addLessonVM = value;
+                    OnPropertyChanged(nameof(AddLessonVM));
+                }
             }
         }
-        #endregion
 
         private void UpdateLessons()
         {
-           LessonsTabVM lessonsTabVM = new LessonsTabVM(repository,SelectedDate);
-           LessonsTab = lessonsTabVM;
+            LessonsTabVM lessonsTabVM = new LessonsTabVM(_repository, SelectedDate);
+            LessonsTab = lessonsTabVM;
         }
-        #region Реализация INotifyProperyChanged
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
     }
 }

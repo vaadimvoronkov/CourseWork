@@ -98,6 +98,7 @@ namespace CourseWork2.ViewModel
 
             }
         }
+
         #endregion
 
         #region Реализация валидации данных

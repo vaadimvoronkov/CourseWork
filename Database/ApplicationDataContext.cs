@@ -26,7 +26,7 @@ namespace Database
             {
                 x.HasKey("DayId");
                 x.Property(x => x.Date);
-                x.HasMany(x => x.Lessons);
+                x.HasMany(x => x.Lesson);
             });
             modelBuilder.Entity<LessonDB>(x =>
             {
@@ -39,11 +39,13 @@ namespace Database
                 x.HasOne(x => x.Room);
                 x.HasOne(x => x.Day);
             });
+
+
             modelBuilder.Entity<RoomDB>(x =>
             {
                 x.HasKey("RoomId");
                 x.Property(x => x.Number);
-                x.HasMany(x => x.Lessons);
+                x.HasMany(x => x.Lesson);
             });
             modelBuilder.Entity<IntervalDB>(x =>
             {
@@ -52,6 +54,7 @@ namespace Database
                 x.Property(x => x.FirstTimeMinute);
                 x.Property(x => x.LastTimeHour);
                 x.Property(x => x.LastTimeMinute);
+                x.HasMany(x => x.Lesson);
             });
             modelBuilder.Entity<TeacherDB>(x =>
             {
@@ -59,7 +62,7 @@ namespace Database
                 x.Property(x => x.FirstName);
                 x.Property(x => x.SecondName);
                 x.Property(x => x.Surname);
-                x.HasMany(x => x.Lessons);
+                x.HasMany(x => x.Lesson);
             });
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

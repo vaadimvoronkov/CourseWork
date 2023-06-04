@@ -10,6 +10,7 @@ namespace Database.Tables
     {
         public int RoomId { get; set; }
         public int Number { get; set; }
-        public virtual List<LessonDB> Lessons { get; set; }
+        public int LessonId { get;  set; }
+        public virtual List<LessonDB> Lesson { get; set; }
     }
 }

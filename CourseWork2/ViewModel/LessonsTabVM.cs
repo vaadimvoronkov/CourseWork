@@ -14,33 +14,42 @@ namespace CourseWork2.ViewModel
 {
     public class LessonsTabVM
     {
-        private ObservableCollection<LessonVM> _lessons = new();
-        private IRepository repository;
-        public ObservableCollection<LessonVM> Lessons { get => _lessons; }
-
+        private ObservableCollection<LessonVM> _lessons;
+        private readonly IRepository _repository;
         public LessonsTabVM(IRepository repository, DateTime dateTime)
         {
-            this.repository = repository;
+            _repository = repository;
             LoadDate(dateTime);
+        }
+        public ObservableCollection<LessonVM> Lessons
+        {
+            get => _lessons;
+            set
+            {
+                _lessons = value;
+                OnPropertyChanged();
+            }
         }
 
         #region Реализация методов
-        private void LoadDate(DateTime dateTime) 
+
+        private void LoadDate(DateTime dateTime)
         {
-            if(repository.GetLessons() != null)
-            {
-                var loadedlessons = repository.GetLessons().Where(lesson => lesson.Day.Date == dateTime).Select(x=>new LessonVM(x));
-                _lessons = new ObservableCollection<LessonVM>(loadedlessons);
-            }
+            var loadedlessons = _repository.GetLessons()?.Where(lesson => lesson.Day.Date == dateTime)?.Select(x => new LessonVM(x));
+            Lessons = new ObservableCollection<LessonVM>(loadedlessons ?? Enumerable.Empty<LessonVM>());
         }
+
         #endregion
 
-        #region Реализация INotifyProperyChanged
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        #region Реализация INotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
         #endregion
 
     }
