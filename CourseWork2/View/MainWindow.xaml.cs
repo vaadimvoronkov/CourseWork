@@ -14,7 +14,7 @@ namespace CourseWork2.View
         public MainWindow()
         {
             InitializeComponent();
-            IRepository repository = new DbRepository();
+            IRepository repository = Repository.GetInstance();
             DataContext  = new MainVM(repository);
         }
     }
