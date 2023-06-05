@@ -1,8 +1,10 @@
-﻿using Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
 using System;
 
 namespace Database.Tables
 {
+    [PrimaryKey("LessonId")]
     public class LessonDB
     {
         public int LessonId { get; set; }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Database
 {
@@ -69,13 +69,9 @@ namespace Database
                 Task = lesson.Task,
                 Progress = lesson.Progress,
                 Day = dayDB,
-                DayId = dayDB.DayId,
                 Interval = intervalDB,
-                IntervalId = intervalDB.IntervalId,
                 Room = roomDB,
-                RoomId = roomDB.RoomId,
                 Teacher = teacherDB,
-                TeacherId = teacherDB.TeacherId
                 
             };
 
@@ -244,7 +240,7 @@ namespace Database
             List<Lesson> lessons = new();
             using (ApplicationDataContext db = new())
             {
-                var lessonsDb = db.Lessons.ToList();
+                var lessonsDb = db.Lessons.Include(x => x.Interval).Include(x => x.Day).Include(x => x.Teacher).Include(x => x.Room).ToList();
                 foreach (var item in lessonsDb)
                 {
                     if (lessons != null)
@@ -253,7 +249,7 @@ namespace Database
                        .SetName(item.Name)
                        .SetTask(item.Task)
                        .SetProgress(item.Progress)
-                       .SetInterval(new Interval(item.Interval.FirstTimeHour, item.Interval.FirstTimeMinute, item.Interval.LastTimeHour, item.Interval.LastTimeMinute))
+                       .SetInterval(new Interval(item.Interval.FirstTimeHour, item.Interval.FirstTimeMinute, item.Interval.LastTimeHour, item.Interval.LastTimeMinute))//скорее всего тут второе доабавление
                        .SetDay(new Day(item.Day.Date))
                        .SetTeacher(new Teacher(item.Teacher.FirstName, item.Teacher.SecondName, item.Teacher.Surname))
                        .SetRoom(new Room(item.Room.Number)).

@@ -13,7 +13,6 @@ namespace Models
         public int FirstTimeMinute { get; set; }
         public int LastTimeHour { get; set; }
         public int LastTimeMinute { get; set; }
-        public int LessonId { get;  set; }
         public virtual List<Lesson> Lesson { get;  set; }
 
         public Interval(int firstTimeHour,int firstTimeMinute,int secondTimeHour,int secondTimeMinute)

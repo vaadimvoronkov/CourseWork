@@ -33,9 +33,6 @@ namespace Database.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
                     b.HasKey("DayId");
 
                     b.ToTable("Days");
@@ -59,9 +56,6 @@ namespace Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("LastTimeMinute")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LessonId")
                         .HasColumnType("int");
 
                     b.HasKey("IntervalId");
@@ -121,9 +115,6 @@ namespace Database.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
 
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
@@ -143,9 +134,6 @@ namespace Database.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
 
                     b.Property<string>("SecondName")
                         .IsRequired()

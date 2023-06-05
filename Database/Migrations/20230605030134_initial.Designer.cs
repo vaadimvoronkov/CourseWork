@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    [Migration("20230604123808_init3")]
-    partial class init3
+    [Migration("20230605030134_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,9 +35,6 @@ namespace Database.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
 
                     b.HasKey("DayId");
 
@@ -62,9 +59,6 @@ namespace Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("LastTimeMinute")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LessonId")
                         .HasColumnType("int");
 
                     b.HasKey("IntervalId");
@@ -124,9 +118,6 @@ namespace Database.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
 
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
@@ -146,9 +137,6 @@ namespace Database.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
 
                     b.Property<string>("SecondName")
                         .IsRequired()

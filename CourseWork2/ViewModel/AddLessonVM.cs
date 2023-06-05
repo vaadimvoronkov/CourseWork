@@ -158,9 +158,9 @@ namespace CourseWork2.ViewModel
         }
         private void CheckCorrectRoomNumber(int number)
         {
-            if (number < 0 || number > 600)
+            if (number <= 0 || number > 600)
             {
-                throw new UncorrectRoomNumberException("Room number cannot be more than 600!");
+                throw new UncorrectRoomNumberException("Room number cannot be more than 600 and less than 1!");
             }
         }
         #endregion
