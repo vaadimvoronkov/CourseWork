@@ -21,7 +21,7 @@ namespace CourseWork2.ViewModel
         {
             _repository = repository;
             _addLessonVM = new AddLessonVM(repository);
-            SelectedDate = DateTime.Now;
+            SelectedDate = DateTime.Today;
         }
 
         public DateTime SelectedDate

@@ -19,7 +19,7 @@ namespace Database
             DayDB dayDB = new DayDB { Date= day.Date };
             using(ApplicationDataContext db = new ApplicationDataContext())
             {
-                bool isExist = db.Days.Any(x => x.Date == day.Date);
+                bool isExist = db.Days.Any(x => x.Date == dayDB.Date);
                 if (isExist != true)
                 {
                     db.Days.Add(dayDB);
@@ -78,18 +78,14 @@ namespace Database
             using (ApplicationDataContext db = new ApplicationDataContext())
             {
                 bool isExist = db.Lessons.Any(x => x.Name == lesson.Name
-                && x.Task == lesson.Task
-                && x.Progress == lesson.Progress
+                && x.Task == lessonDB.Task
+                && x.Progress == lessonDB.Progress
                 && x.Day == lessonDB.Day
                 && x.Interval == lessonDB.Interval
                 && x.Teacher == lessonDB.Teacher
                 && x.Room == lessonDB.Room);
                 if (isExist != true)
                 {
-                    AddDay(lesson.Day);
-                    AddInterval(lesson.Interval);
-                    AddRoom(lesson.Room);
-                    AddTeacher(lesson.Teacher);
                     db.Lessons.Add(lessonDB);
                     db.SaveChanges();
                 }
@@ -142,7 +138,7 @@ namespace Database
                 }
                 else
                 {
-                    return AddDay(day);
+                    return day;
                 }
             }
         }
@@ -160,7 +156,7 @@ namespace Database
                 }
                 else
                 {
-                    return AddRoom(room);
+                    return room;
                 }
             }
         }
@@ -181,7 +177,7 @@ namespace Database
                 }
                 else
                 {
-                    return AddTeacher(teacher);
+                    return teacher;
                 }
             }
         }
@@ -207,7 +203,7 @@ namespace Database
                     }
                     else
                     {
-                        return AddInterval(interval);
+                        return interval;
                     }
                 }
             }
@@ -258,6 +254,7 @@ namespace Database
                         lessons.Add(lesson);
                     }
                 }
+                
                 return lessons;
             }
         }

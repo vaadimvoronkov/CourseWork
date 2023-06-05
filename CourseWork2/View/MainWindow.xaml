@@ -24,7 +24,7 @@
                     <ListView.View>
                         
                         <GridView>
-                            <GridViewColumn Header ="Lesson Name">
+                            <GridViewColumn Header ="Lesson Name" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="13" Text="{Binding Name}" HorizontalAlignment="Center" />
@@ -32,42 +32,42 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header ="Task">
+                            <GridViewColumn Header ="Task" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="13" Text="{Binding Task}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="First Time">
+                            <GridViewColumn Header ="First Time" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="13" Text="{Binding FirstTime}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Last Time">
+                            <GridViewColumn Header ="Last Time" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="13" Text="{Binding LastTime}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Teacher Name">
+                            <GridViewColumn Header ="Teacher Name" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock FontSize="13" Text="{Binding Teacher}" HorizontalAlignment="Center" />
+                                        <TextBlock FontSize="13" Text="{Binding Teacher}" HorizontalAlignment="Center"  />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Room Number">
+                            <GridViewColumn Header ="Room Number" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock FontSize="13" Text="{Binding Room}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn  Header ="Progress">
+                            <GridViewColumn  Header ="Progress" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox IsChecked="{Binding Progress}" />
@@ -87,13 +87,12 @@
                     <TextBlock Text ="Add Lesson"/>
                 </TabItem.Header>
 
-                <local:AddLessonView DataContext="{Binding AddLessonVM}"/> <!--<local:AddLessonView DataContext="{Binding LessonVM}"/>-->
+                <local:AddLessonView DataContext="{Binding AddLessonVM}"/> 
 
             </TabItem>
         </TabControl>
 
         <DatePicker Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,5" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="gyu" SelectedDate="{Binding SelectedDate}"/>
         <Label Content="Diary" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="16"/>
-        <!--<Button Content="Update" Grid.Row="3" Margin="5,0,5,0" Width="50" Height="30" Command="{Binding UpdateLessonsList}"/>-->
     </Grid>
 </Window>
