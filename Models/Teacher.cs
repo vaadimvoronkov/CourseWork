@@ -9,12 +9,11 @@ namespace Models
 {
     public class Teacher
     {
-        public int TeacherId { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string Surname { get; set; }
-        public int LessonId { get; set; }
-        public virtual List<Lesson> Lesson { get; set; }
+        public int TeacherId { get; private set; }
+        public string FirstName { get; private set; }
+        public string SecondName { get; private set; }
+        public string Surname { get; private set; }
+        public virtual List<Lesson> Lesson { get; private set; }
 
         public Teacher(string firstName,string secondName, string surname)
         {

@@ -7,10 +7,9 @@ namespace Models
 {
     public class Day
     {
-        public int DayId { get;  set; }
-        public DateTime Date { get; set; }
-        public int LessonId { get; set; }
-        public virtual List<Lesson> Lesson { get; set; }
+        public int DayId { get;  private set; }
+        public DateTime Date { get; private set; }
+        public virtual List<Lesson> Lesson { get; private set; }
 
         public Day(DateTime date)
         {
