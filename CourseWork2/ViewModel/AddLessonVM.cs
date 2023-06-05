@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace CourseWork2.ViewModel
@@ -40,7 +41,7 @@ namespace CourseWork2.ViewModel
         {
             get
             {
-                return new RelayCommand(obj =>
+                return new RelayCommand(async obj =>
                 {
                     try
                     {
@@ -63,7 +64,10 @@ namespace CourseWork2.ViewModel
                         ValidateNumbers(FirstTimeHour, FirstTimeMinute, LastTimeHour, LastTimeMinute,RoomNumber);
                         ValidateTexts(LessonName, LessonTask, TeacherFirstName, TeacherSecondName, TeacherSurname);
 
-                        repository.AddLesson(_lesson);
+                        await Task.Run(() =>
+                        {
+                            repository.AddLesson(_lesson);
+                        });
                     }
                     catch (ArgumentNullException) 
                     {

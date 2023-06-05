@@ -28,9 +28,9 @@ namespace Models
         private List<Teacher> teachers = new List<Teacher>();
 
         #region Методы добавления данных
-        public void AddLesson(Lesson lesson)
+        public async Task AddLesson(Lesson lesson)
         {
-            lessons.Add(lesson);
+            await Task.Run(() => lessons.Add(lesson));
         }
         public Day AddDay(Day day)
         {

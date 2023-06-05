@@ -7,7 +7,7 @@ namespace Models
     {
         Day AddDay(Day day);
         Interval AddInterval(Interval interval);
-        void AddLesson(Lesson lesson);
+        Task AddLesson(Lesson lesson);
         Room AddRoom(Room room);
         Teacher AddTeacher(Teacher teacher);
 

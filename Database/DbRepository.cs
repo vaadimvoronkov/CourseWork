@@ -50,7 +50,7 @@ namespace Database
             return interval;
         }
 
-        public void AddLesson(Lesson lesson)
+        public async Task AddLesson(Lesson lesson)
         {
             DayDB dayDB = new DayDB { Date = lesson.Day.Date };
             RoomDB roomDB = new RoomDB { Number = lesson.Room.Number };
@@ -72,22 +72,23 @@ namespace Database
                 Interval = intervalDB,
                 Room = roomDB,
                 Teacher = teacherDB,
-                
+
             };
 
             using (ApplicationDataContext db = new ApplicationDataContext())
             {
-                bool isExist = db.Lessons.Any(x => x.Name == lesson.Name
-                && x.Task == lessonDB.Task
-                && x.Progress == lessonDB.Progress
-                && x.Day == lessonDB.Day
-                && x.Interval == lessonDB.Interval
-                && x.Teacher == lessonDB.Teacher
-                && x.Room == lessonDB.Room);
-                if (isExist != true)
+                bool isExist = await db.Lessons.AnyAsync(x => x.Name == lesson.Name
+                    && x.Task == lessonDB.Task
+                    && x.Progress == lessonDB.Progress
+                    && x.Day == lessonDB.Day
+                    && x.Interval == lessonDB.Interval
+                    && x.Teacher == lessonDB.Teacher
+                    && x.Room == lessonDB.Room);
+
+                if (!isExist)
                 {
                     db.Lessons.Add(lessonDB);
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
                 }
             }
         }
